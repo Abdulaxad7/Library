@@ -4,9 +4,10 @@
 #include <cstdlib>
 #include <sstream>
 #include <iostream>
+
 #include "Connect.h"
 #include "CreateAccount.h"
-static int i=0;
+static int i=1;
 CreateAccount::CreateAccount(std::string_view password,  std::string_view fullname,  std::string_view email, int id)
         : password(password), fullname(fullname), email(email), id(id) {
     file.open("userDataCenter.csv",std::ios::in|std::ios::out);
@@ -32,16 +33,16 @@ CreateAccount::CreateAccount() {
 }
 
 
-bool CreateAccount::setId() {
+unsigned int CreateAccount::setId() {
     std::string line;
 
     std::srand(time(0));
     id=rand()%99999999;
 
     if(!(file<<id<<",")){
-        return false;
+        return 0;
     }
-    return true;
+    return id;
 }
 
 bool CreateAccount::setFullname( std::string_view fullname) {
@@ -61,14 +62,19 @@ bool CreateAccount::setEmail( std::string_view email) {
     return true;
 }
 
+
+
 bool CreateAccount::setPassword(std::string_view password) {
     this->password = password;
-    if(!(file<<password<<std::endl)){
+
+    if(!(file<<Encryption::encHashPass(password)<<std::endl)){
         return false;
     }
 
     return true;
 }
+
+
 
 
 

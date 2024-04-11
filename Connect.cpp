@@ -17,54 +17,61 @@ Connect::Connect() {
     }
 }
 
-std::vector<std::string> Connect::readId() {
+std::vector<std::string> Connect::readId(std::string_view id) {
+    int targetColumn = 2;
+    std::vector<std::string> allId;
+     if (std::getline(file, line)) {
+     }
 
-    std::vector<std::string> data;
-    std::istringstream stream(column1);
-    while(std::getline(file, column1,',')){
+    while (std::getline(file, line)) {
+        std::stringstream stringstream(line);
 
-        std::getline(file,column2);
-        data.push_back(column2);
+        for (int i = 0; i < targetColumn -1; i++) {
+            std::getline(stringstream, field, ',');
+        }
+        std::getline(stringstream, field, ',');
+        allId.push_back(field);
     }
-    return data;
+    return allId;
 }
 
-std::string_view Connect::readName() {
+std::vector<std::string> Connect::readName() {
 
-    std::istringstream stream(column1);
-    std::getline(file,column1);
-    while(std::getline(file,column1)){
-
-        if(std::getline(stream,column2,',')){
-        }
-        if(std::getline(stream,column2,',')){
-        }
-
-        getline(stream,column2,',');
-
-        return column2;
+    int targetColumn = 3;
+    std::vector<std::string> allNames;
+    if (std::getline(file, line)) {
     }
-    return "";
+
+    while (std::getline(file, line)) {
+        std::stringstream stringstream(line);
+
+        for (int i = 0; i < targetColumn -1; i++) {
+            std::getline(stringstream, field, ',');
+        }
+        std::getline(stringstream, field, ',');
+        allNames.push_back(field);
+    }
+    return allNames;
 
 }
 
-std::string_view Connect::readPassword() {
+std::vector<std::string> Connect::readPassword() {
 
-    std::istringstream stream(column1);
-    std::getline(file,column1);
-    while(std::getline(file,column1)){
-
-        if(std::getline(stream,column2,',')){
-        }
-        if(std::getline(stream,column2,',')){
-        }
-        if(std::getline(stream,column2,',')){
-        }
-        getline(stream,column2,',');
-
-        return column2;
+    int targetColumn = 5;
+    std::vector<std::string> allPasswords;
+    if (std::getline(file, line)) {
     }
-    return "";
+
+    while (std::getline(file, line)) {
+        std::stringstream stringstream(line);
+
+        for (int i = 0; i < targetColumn -1; i++) {
+            std::getline(stringstream, field, ',');
+        }
+        std::getline(stringstream, field, ',');
+        allPasswords.push_back(field);
+    }
+    return allPasswords;
 
 }
 

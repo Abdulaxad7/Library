@@ -8,18 +8,16 @@
 #include <string>
 #include <fstream>
 class Connect{
+private:
+    std::string line;
+    std::string field;
+    std::fstream file;
 public:
     explicit Connect();
     virtual ~Connect();
-    std::vector<std::string> readId();
-    std::string_view readPassword();
-    std::string_view readName();
-
-private:
-    std::string column1;
-    std::string column2;
-    std::fstream file;
-
+    std::vector<std::string> readId(std::string_view );
+    std::vector<std::string> readPassword();
+    std::vector<std::string> readName();
 };
 
 

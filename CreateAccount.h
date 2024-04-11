@@ -6,7 +6,8 @@
 #define UNTITLED22_CREATEACCOUNT_H
 
 #include <fstream>
-class CreateAccount :private Connect{
+#include "Encryption.h"
+class CreateAccount :private Connect,private Encryption{
     std::string_view password;
     std::string_view fullname;
     std::string_view email;
@@ -25,7 +26,8 @@ public:
 
     bool setEmail( std::string_view );
 
-    bool setId();
+    unsigned int setId();
+
 
 };
 

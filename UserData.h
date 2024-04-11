@@ -6,7 +6,8 @@
 #define UNTITLED22_USERDATA_H
 
 #include "Connect.h"
-class UserData{
+#include "Encryption.h"
+class UserData:private Encryption{
     Connect connect;
     std::string userId;
     std::string_view userName;

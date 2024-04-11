@@ -4,15 +4,15 @@
 int main() {
 
     UserData data;
-   if( data.checkUserId("94514107")){
+   if( data.checkUserPassword("asbdfk1234roietjqlkrelkj")){
        std::cout<<"true";
    }
 
 //    CreateAccount createAccount;
-//    createAccount.setId();
-//    createAccount.setFullname("Abdulaxad");
+//    std::cout<<createAccount.setId();
+//    createAccount.setFullname("Abdulaxad Isroilov");
 //    createAccount.setEmail("abdulaxad@gmail.com");
-//    createAccount.setPassword("1234qwerqwer");
+//    createAccount.setPassword("asbdfk1234roietjqlkrelkj");
 
 
 //    std::cout << "Hello, World!" << std::endl;

@@ -11,4 +11,6 @@ add_executable(untitled22 main.cpp
         Connect.cpp
         CreateAccount.h
         CreateAccount.cpp
+        Encryption.h
+        Encryption.cpp
 )
