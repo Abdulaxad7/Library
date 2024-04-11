@@ -1,12 +1,13 @@
 #include <iostream>
 #include "UserData.h"
+#include "Screen.h"
 #include "CreateAccount.h"
 int main() {
 
-    UserData data;
-   if( data.checkUserPassword("asbdfk1234roietjqlkrelkj")){
-       std::cout<<"true";
-   }
+//    UserData data;
+//   if( data.checkUserPassword("asbdfk1234roietjqlkrelkj")){
+//       std::cout<<"true";
+//   }
 
 //    CreateAccount createAccount;
 //    std::cout<<createAccount.setId();
@@ -16,5 +17,11 @@ int main() {
 
 
 //    std::cout << "Hello, World!" << std::endl;
+
+Screen screen;
+screen.welcome();
+
+
     return 0;
 }
+

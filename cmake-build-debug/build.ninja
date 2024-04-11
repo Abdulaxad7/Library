@@ -79,6 +79,12 @@ build CMakeFiles/untitled22.dir/Encryption.cpp.o: CXX_COMPILER__untitled22_unsca
   OBJECT_DIR = CMakeFiles/untitled22.dir
   OBJECT_FILE_DIR = CMakeFiles/untitled22.dir
 
+build CMakeFiles/untitled22.dir/Screen.cpp.o: CXX_COMPILER__untitled22_unscanned_Debug /Users/abdulaxad/CLionProjects/untitled22/Screen.cpp || cmake_object_order_depends_target_untitled22
+  DEP_FILE = CMakeFiles/untitled22.dir/Screen.cpp.o.d
+  FLAGS = -g -std=gnu++2b -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/untitled22.dir
+  OBJECT_FILE_DIR = CMakeFiles/untitled22.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target untitled22
@@ -87,7 +93,7 @@ build CMakeFiles/untitled22.dir/Encryption.cpp.o: CXX_COMPILER__untitled22_unsca
 #############################################
 # Link the executable untitled22
 
-build untitled22: CXX_EXECUTABLE_LINKER__untitled22_Debug CMakeFiles/untitled22.dir/main.cpp.o CMakeFiles/untitled22.dir/UserData.cpp.o CMakeFiles/untitled22.dir/Connect.cpp.o CMakeFiles/untitled22.dir/CreateAccount.cpp.o CMakeFiles/untitled22.dir/Encryption.cpp.o
+build untitled22: CXX_EXECUTABLE_LINKER__untitled22_Debug CMakeFiles/untitled22.dir/main.cpp.o CMakeFiles/untitled22.dir/UserData.cpp.o CMakeFiles/untitled22.dir/Connect.cpp.o CMakeFiles/untitled22.dir/CreateAccount.cpp.o CMakeFiles/untitled22.dir/Encryption.cpp.o CMakeFiles/untitled22.dir/Screen.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.4.sdk
   OBJECT_DIR = CMakeFiles/untitled22.dir
   POST_BUILD = :

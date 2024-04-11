@@ -13,4 +13,7 @@ add_executable(untitled22 main.cpp
         CreateAccount.cpp
         Encryption.h
         Encryption.cpp
+        Views.h
+        Screen.h
+        Screen.cpp
 )
