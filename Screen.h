@@ -12,6 +12,7 @@ class Screen : public Views{
 public:
     void welcome() override;
     void display() override;
+    void start()override;
 };
 
 

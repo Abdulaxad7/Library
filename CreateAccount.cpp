@@ -4,8 +4,6 @@
 #include <cstdlib>
 #include <sstream>
 #include <iostream>
-
-#include "Connect.h"
 #include "CreateAccount.h"
 static int i=1;
 CreateAccount::CreateAccount(std::string_view password,  std::string_view fullname,  std::string_view email, int id)

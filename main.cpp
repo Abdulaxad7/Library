@@ -4,10 +4,10 @@
 #include "CreateAccount.h"
 int main() {
 
-//    UserData data;
-//   if( data.checkUserPassword("asbdfk1234roietjqlkrelkj")){
-//       std::cout<<"true";
-//   }
+    UserData data;
+   if( data.checkUserPassword("asbdfk1234roietjqlkrelkj")){
+       std::cout<<"true";
+   }
 
 //    CreateAccount createAccount;
 //    std::cout<<createAccount.setId();
@@ -18,8 +18,8 @@ int main() {
 
 //    std::cout << "Hello, World!" << std::endl;
 
-Screen screen;
-screen.welcome();
+//Screen screen;
+//screen.start();
 
 
     return 0;

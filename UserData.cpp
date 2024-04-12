@@ -1,7 +1,7 @@
 //
 // Created by Abdulaxad on 10/04/24.
 //
-
+#include <algorithm>
 #include <vector>
 #include <string>
 #include <string_view>
@@ -23,7 +23,17 @@ bool UserData::checkUserName(std::string_view userName){
         for(std::string s:names){
             if(userName==s)
                 return true;
+            s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
+            if(userName==s)
+                return true;
+           std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) {return std::tolower(c);});
+            if(userName==s)
+                return true;
+            std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) {return std::toupper(c);});
+            if(userName==s)
+                return true;
         }
+
     return false;
 }
 

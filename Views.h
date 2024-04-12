@@ -8,6 +8,7 @@ class Views{
 protected:
     virtual void welcome()=0;
     virtual void display()=0;
+    virtual void start()=0;
 
 };
 #endif //UNTITLED22_VIEWS_H
