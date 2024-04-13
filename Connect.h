@@ -7,6 +7,7 @@
 
 #include <string>
 #include <fstream>
+#include <future>
 class Connect{
 private:
     std::string line;
@@ -18,6 +19,8 @@ public:
     std::vector<std::string> readId(std::string_view );
     std::vector<std::string> readPassword();
     std::vector<std::string> readName();
+
+
 };
 
 

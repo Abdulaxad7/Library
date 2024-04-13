@@ -10,13 +10,14 @@ CreateAccount::CreateAccount(std::string_view password,  std::string_view fullna
         : password(password), fullname(fullname), email(email), id(id) {
     file.open("userDataCenter.csv",std::ios::in|std::ios::out);
     if(!file.is_open()) {
-
-
         std::cerr << "Could not open file" << std::endl;
     }
-    if(!(file<<id<<","<<fullname<<","<<email<<","<<password<<std::endl)){
+        try{
+            file<<id<<","<<fullname<<","<<email<<","<<password<<std::endl;
         return;
-    }
+    }catch (const std::exception&exception){
+            return;
+        }
 }
 
 CreateAccount::CreateAccount() {
@@ -37,27 +38,34 @@ unsigned int CreateAccount::setId() {
     std::srand(time(0));
     id=rand()%99999999;
 
-    if(!(file<<id<<",")){
-        return 0;
+    try{
+        file<<id<<",";
+        return id;
+    }catch (const std::exception&exception) {
+        return false;
     }
-    return id;
 }
 
 bool CreateAccount::setFullname( std::string_view fullname) {
     this->fullname = fullname;
 
-    if(!(file<<fullname<<",")){
-        return false;
+    try{
+        file<<fullname<<",";
+            return true;
+    }catch (const std::exception&exception) {
+            return false;
     }
-    return true;
 }
 
 bool CreateAccount::setEmail( std::string_view email) {
     this->email = email;
-    if(!(file<<email<<",")){
+    try {
+        file << email << ",";
+        return true;
+    }catch (const std::exception&exception) {
+
         return false;
     }
-    return true;
 }
 
 
@@ -65,17 +73,14 @@ bool CreateAccount::setEmail( std::string_view email) {
 bool CreateAccount::setPassword(std::string_view password) {
     this->password = password;
 
-    if(!(file<<Encryption::encHashPass(password)<<std::endl)){
-        return false;
-    }
+   try{
 
-    return true;
+       file<<Encryption::encHashPass(password)<<std::endl;
+        return true;
+    }catch (const std::exception&exception) {
+       return false;
+   }
 }
-
-
-
-
-
 CreateAccount::~CreateAccount(){
     if(file.is_open())
         file.close();

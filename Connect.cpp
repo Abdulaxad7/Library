@@ -8,11 +8,10 @@
 #include <vector>
 #include "Connect.h"
 
+
 Connect::Connect() {
     file.open("userDataCenter.csv",std::ios::in|std::ios::out);
     if(!file.is_open()) {
-
-
         std::cerr << "Could not open file" << std::endl;
     }
 }
@@ -27,10 +26,11 @@ std::vector<std::string> Connect::readId(std::string_view id) {
         std::stringstream stringstream(line);
 
         for (int i = 0; i < targetColumn -1; i++) {
-            std::getline(stringstream, field, ',');
+           std::getline(stringstream, field, ',');
         }
         std::getline(stringstream, field, ',');
-        allId.push_back(field);
+         allId.emplace_back(field);
+
     }
     return allId;
 }
@@ -39,6 +39,7 @@ std::vector<std::string> Connect::readName() {
 
     int targetColumn = 3;
     std::vector<std::string> allNames;
+
     if (std::getline(file, line)) {
     }
 
@@ -46,13 +47,16 @@ std::vector<std::string> Connect::readName() {
         std::stringstream stringstream(line);
 
         for (int i = 0; i < targetColumn -1; i++) {
+
+
             std::getline(stringstream, field, ',');
         }
         std::getline(stringstream, field, ',');
-        allNames.push_back(field);
+
+
+        allNames.emplace_back(field);
     }
     return allNames;
-
 }
 
 std::vector<std::string> Connect::readPassword() {
@@ -69,7 +73,7 @@ std::vector<std::string> Connect::readPassword() {
             std::getline(stringstream, field, ',');
         }
         std::getline(stringstream, field, ',');
-        allPasswords.push_back(field);
+        allPasswords.emplace_back(field);
     }
     return allPasswords;
 

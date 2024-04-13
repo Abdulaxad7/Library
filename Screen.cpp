@@ -4,16 +4,16 @@
 #include <iostream>
 #include "Screen.h"
 
-const std::string GREEN = "\033[38;5;28m";
-const std::string RESET = "\033[0m";
-const std::string BLUE="\033[1;34m";
-const std::string RED="\033[1;31m";
-const std::string BG="\033[40m";
+
 #include <ctime>
 #include <iomanip>
 #include <thread>
 
-
+std::string_view GREEN=  "\033[38;5;28m";
+std::string_view RESET=  "\033[0m";
+std::string_view BLUE=   "\033[34m";
+std::string_view RED=    "\033[31m";
+std::string_view BG=     "\033[40m";
 
 void Screen::welcome() {
 
@@ -61,7 +61,6 @@ void Screen::display() {
 
 }
 int load(){
-    std::cout<<std::flush;
 
         std::this_thread::sleep_for(std::chrono::milliseconds(250));
         std::cout<<"\b—"<<std::flush;
@@ -74,10 +73,7 @@ int load(){
 
 }
 
-
-
-void startt() {
-    unsigned char d=0;
+void startInfo() {
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
 
     time_t tt = std::chrono::system_clock::to_time_t(now);
@@ -95,16 +91,14 @@ auto dash=[](){
         std::cout<< "---";
     }
     return "-";};
-    std::cout <<buffer <<"INFO 43565 "<<dash()<<"Loading "<<"  "<<load()<< std::endl;
-
-
+    std::cout <<buffer <<"INFO 43565 "<<dash()<<"Loading "<<load()<<"\n";
 
 }
 void Screen::start(){
     std::cout<<GREEN;
     for(int i=0;i<10;i++){
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
-        startt();
+        startInfo();
     }
     display();
     std::cout<<RESET;

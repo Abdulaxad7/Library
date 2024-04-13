@@ -18,20 +18,30 @@ bool UserData::checkUserId(std::string userId) {
 }
 
 bool UserData::checkUserName(std::string_view userName){
+    if(userName.contains(::isdigit(1))||userName.empty())
+        return false;
     std::vector<std::string>names=connect.readName();
     this->userName=userName;
+
         for(std::string s:names){
+
             if(userName==s)
                 return true;
-            s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
-            if(userName==s)
-                return true;
-           std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) {return std::tolower(c);});
-            if(userName==s)
-                return true;
-            std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) {return std::toupper(c);});
-            if(userName==s)
-                return true;
+            {
+                s.erase(std::remove(s.begin(), s.end(), ' '), s.end());
+                if (userName == s)
+                    return true;
+            }
+            {
+                std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return std::tolower(c); });
+                if (userName == s)
+                    return true;
+            }
+            {
+                std::transform(s.begin(), s.end(), s.begin(), [](unsigned char c) { return std::toupper(c); });
+                if (userName == s)
+                    return true;
+            }
         }
 
     return false;

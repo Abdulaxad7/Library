@@ -5,15 +5,15 @@
 int main() {
 
     UserData data;
-   if( data.checkUserPassword("asbdfk1234roietjqlkrelkj")){
+   if( data.checkUserName("Master Mac")){
        std::cout<<"true";
    }
 
 //    CreateAccount createAccount;
 //    std::cout<<createAccount.setId();
-//    createAccount.setFullname("Abdulaxad Isroilov");
-//    createAccount.setEmail("abdulaxad@gmail.com");
-//    createAccount.setPassword("asbdfk1234roietjqlkrelkj");
+//    createAccount.setFullname("Bob Uilm");
+//    createAccount.setEmail("bob.uilm@in.emp.org");
+//    createAccount.setPassword("asndfnqjkwq543H");
 
 
 //    std::cout << "Hello, World!" << std::endl;

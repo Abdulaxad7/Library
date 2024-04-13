@@ -10,7 +10,7 @@ class Encryption {
 protected:
     static std::string encHashPass(std::string_view );
     static bool decHashPass(std::string_view );
-    ~Encryption()=default;
+    virtual ~Encryption()=default;
 };
 
 

@@ -9,7 +9,7 @@
 #include "Encryption.h"
 #include "Connect.h"
 
-class CreateAccount :private Connect,private Encryption{
+class CreateAccount :private Encryption{
     std::string_view password;
     std::string_view fullname;
     std::string_view email;
