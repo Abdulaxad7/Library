@@ -7,12 +7,11 @@
 
 
 #include "Views.h"
-class Screen : public Views{
+class Screen final: public Views{
 public:
-
-    void welcome() override;
-    void display() override;
-    void start() override;
+    void welcome()override ;
+    void display()  override;
+    void start()  override;
 };
 
 

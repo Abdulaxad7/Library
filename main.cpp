@@ -1,13 +1,14 @@
 #include <iostream>
 #include "UserData.h"
+#include "Views.h"
 #include "Screen.h"
 #include "CreateAccount.h"
 int main() {
 
-    UserData data;
-   if( data.checkUserName("Master Mac")){
-       std::cout<<"true";
-   }
+//    UserData data;
+//   if( data.checkUserName("Master Mac")){
+//       std::cout<<"true";
+//   }
 
 //    CreateAccount createAccount;
 //    std::cout<<createAccount.setId();
@@ -20,7 +21,6 @@ int main() {
 
 //Screen screen;
 //screen.start();
-
 
     return 0;
 }
