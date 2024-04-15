@@ -14,7 +14,7 @@ class UserData:private Encryption{
     std::string_view userPassword;
 public:
     UserData()=default;
-    UserData(std::string,std::string_view,std::string_view);
+
     bool checkUserId(std::string);
     bool checkUserName(std::string_view );
     bool checkUserPassword(std::string_view );

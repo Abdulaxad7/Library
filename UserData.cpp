@@ -52,9 +52,3 @@ bool UserData::checkUserPassword(std::string_view userPassword) {
     return Encryption::decHashPass(userPassword);
 }
 
-UserData::UserData(std::string userId, std::string_view userName, std::string_view userPassword) {
-    this->userId=userId;
-    this->userName=userName;
-    this->userPassword=userPassword;
-}
-
