@@ -9,7 +9,7 @@
 #include <vector>
 
 class BookData {
-public:
+protected:
     BookData();
     std::vector<std::string>check_by_book_id(std::string_view);
     std::vector<std::string>check_by_book_name(std::string_view);
@@ -18,10 +18,13 @@ public:
     virtual ~BookData();
 
 private:
-    template<class T>auto open_file();
+    template<class _Search>auto search(auto target_search,auto target_page);
+    template<class _Open_File>auto open_file();
     std::string_view book_id;
     std::string_view book_name;
     std::string_view book_author;
+    std::vector<std::string> all;
+    std::vector<std::string> founded;
     std::string field;
     std::string line;
     std::fstream file;
