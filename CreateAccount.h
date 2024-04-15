@@ -21,16 +21,16 @@ public:
     ~CreateAccount();
     CreateAccount(std::string_view ,  std::string_view ,  std::string_view , int id);
 
-public:
-    bool setPassword(std::string_view password);
+    CreateAccount* setPassword(std::string_view password);
 
-    bool setFullname( std::string_view );
+    CreateAccount* setFullname( std::string_view );
 
-    bool setEmail( std::string_view );
+    CreateAccount* setEmail( std::string_view );
 
-    unsigned int setId();
+    CreateAccount* setId();
 
-
+private:
+    template<class T>auto open_file();
 };
 
 

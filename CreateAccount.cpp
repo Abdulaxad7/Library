@@ -6,12 +6,19 @@
 #include <iostream>
 #include "CreateAccount.h"
 static int i=1;
-CreateAccount::CreateAccount(std::string_view password,  std::string_view fullname,  std::string_view email, int id)
-        : password(password), fullname(fullname), email(email), id(id) {
+
+
+
+template<class T>auto CreateAccount::open_file(){
     file.open("userDataCenter.csv",std::ios::in|std::ios::out);
     if(!file.is_open()) {
         std::cerr << "Could not open file" << std::endl;
     }
+}
+
+CreateAccount::CreateAccount(std::string_view password,  std::string_view fullname,  std::string_view email, int id)
+        : password(password), fullname(fullname), email(email), id(id) {
+    open_file<void>();
         try{
             file<<id<<","<<fullname<<","<<email<<","<<password<<std::endl;
         return;
@@ -21,18 +28,13 @@ CreateAccount::CreateAccount(std::string_view password,  std::string_view fullna
 }
 
 CreateAccount::CreateAccount() {
-
-    file.open("userDataCenter.csv",std::ios::in|std::ios::out|std::ios::app);
-    if(!file.is_open()) {
-        std::cerr << "Could not open file" << std::endl;
-    }
-
+    open_file<void>();
     file<<i<<",";
     i++;
 }
 
 
-unsigned int CreateAccount::setId() {
+CreateAccount* CreateAccount::setId() {
     std::string line;
 
     std::srand(time(0));
@@ -40,48 +42,51 @@ unsigned int CreateAccount::setId() {
 
     try{
         file<<id<<",";
-        return id;
+        return this;
     }catch (const std::exception&exception) {
-        return false;
+        return this;
     }
 }
 
-bool CreateAccount::setFullname( std::string_view fullname) {
+CreateAccount* CreateAccount::setFullname( std::string_view fullname) {
     this->fullname = fullname;
 
     try{
         file<<fullname<<",";
-            return true;
+            return this;
     }catch (const std::exception&exception) {
-            return false;
+            return this;
     }
 }
 
-bool CreateAccount::setEmail( std::string_view email) {
+CreateAccount* CreateAccount::setEmail( std::string_view email) {
     this->email = email;
     try {
         file << email << ",";
-        return true;
+        return this;
     }catch (const std::exception&exception) {
 
-        return false;
+        return this;
     }
 }
 
 
 
-bool CreateAccount::setPassword(std::string_view password) {
+CreateAccount* CreateAccount::setPassword(std::string_view password) {
     this->password = password;
 
    try{
 
        file<<Encryption::encHashPass(password)<<std::endl;
-        return true;
+        return this;
     }catch (const std::exception&exception) {
-       return false;
+       return this;
    }
 }
 CreateAccount::~CreateAccount(){
     if(file.is_open())
         file.close();
 }
+
+
+

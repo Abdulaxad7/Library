@@ -16,4 +16,16 @@ add_executable(untitled22 main.cpp
         Views.h
         Screen.h
         Screen.cpp
+        Book.h
+        Book.cpp
+        Author.h
+        Author.cpp
+        Buy.h
+        Buy.cpp
+        Administration.h
+        Administration.cpp
+        BookData.h
+        BookData.cpp
+        InsertBook.h
+        InsertBook.cpp
 )
