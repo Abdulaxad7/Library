@@ -5,7 +5,7 @@
 #include "Book.h"
 template<class Check>auto Book::checking(auto target_number){
     std::vector<std::string>s=*check;
-    std::cout<<s[target_number]<<std::endl;
+    return s[target_number];
 }
 
 double Book::checkPrice()  {
@@ -23,7 +23,7 @@ int Book::checkPages()  {
     return book_name;
 }
 
- Author Book::checkAuthor()  {
+ std::string Book::checkAuthor()  {
     checking<void>(3);
     return author;
 }
@@ -50,5 +50,12 @@ bool Book::exist_by_book_author(std::string author) {
 }
 
 Book::Book() {}
+
+void operator<<(std::ostream &out, Book &book) {
+   out<<"Your Book name is : "<<book.book_name
+      <<"\nYour Book author is: "<<book.author
+      <<"\nYour Book price is: "<<book.price
+      <<"\nYour Book Pages is: "<<book.pages<<std::endl;
+}
 
 

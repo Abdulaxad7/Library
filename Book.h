@@ -5,7 +5,6 @@
 #ifndef UNTITLED22_BOOK_H
 #define UNTITLED22_BOOK_H
 #include "BookData.h"
-#include "Author.h"
 
 class Book :BookData{
 
@@ -14,8 +13,7 @@ public:
     virtual ~Book(){
 
     }
-
-
+    friend void operator<<(std::ostream &,Book&);
     bool exist_by_book_name(std::string);
     bool exist_by_book_id(std::string);
     bool exist_by_book_author(std::string);
@@ -26,14 +24,14 @@ public:
 
      std::string checkBookName() ;
 
-     Author checkAuthor() ;
+     std::string checkAuthor() ;
 
 private:
     template<class Check>auto checking(auto target_number);
     double price;
     int pages;
     std::string book_name;
-    Author author;
+    std::string author;
     std::unique_ptr<std::vector<std::string >>check=std::make_unique<std::vector<std::string>>();
 };
 

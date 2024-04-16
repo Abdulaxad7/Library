@@ -5,9 +5,21 @@
 #ifndef UNTITLED22_ADMINISTRATION_H
 #define UNTITLED22_ADMINISTRATION_H
 
+#include "Encryption.h"
+#include <fstream>
+class Administration: private Encryption{
+public:
+    Administration();
 
-class Administration {
-
+    virtual ~Administration();
+    bool check_id(std::string);
+    bool check_password(std::string);
+private:
+    std::string id;
+    std::string password;
+    std::string field;
+    std::string line;
+    std::fstream file;
 };
 
 

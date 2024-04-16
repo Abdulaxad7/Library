@@ -5,12 +5,16 @@
 #ifndef UNTITLED22_BUY_H
 #define UNTITLED22_BUY_H
 
-#include "Author.h"
 
 
+#include "Book.h"
 class Buy {
-Author author;
-//Book book;
+Book book;
+
+    std::string cardValidDate;
+    std::string cardNumber;
+
+    std::string location;
 };
 
 
