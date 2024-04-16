@@ -6,11 +6,11 @@
 #define UNTITLED22_BUY_H
 
 #include "Author.h"
-#include "Book.h"
+
 
 class Buy {
 Author author;
-Book book;
+//Book book;
 };
 
 

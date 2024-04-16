@@ -4,6 +4,7 @@
 #include "Screen.h"
 #include "CreateAccount.h"
 #include "InsertBook.h"
+#include "Book.h"
 #include "BookData.h"
 int main() {
 //       UserData data;
@@ -22,6 +23,11 @@ int main() {
 
 //Screen screen;
 //screen.start();
+Book book;
+if(book.exist_by_book_id("654364"))
+    std::cout<<"true"<<std::endl;
+book.checkPrice();
+book.checkAuthor();
 
     return 0;
 }

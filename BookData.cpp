@@ -7,17 +7,18 @@
 #include <string_view>
 #include "BookData.h"
 
-template<class _Search>
+template<class Search>
 auto BookData::search(auto target_search,auto target_page){
     if (std::getline(file, line)) {
     }
     while (std::getline(file, line)) {
         std::stringstream stringstream(line);
         std::vector<std::string> fields;
-
         for (std::string field; std::getline(stringstream, field, ',');) {
             fields.push_back(field);
         }
+
+
         if (!fields.empty() && fields[target_page] == target_search) {
             founded = fields;
             break;
@@ -25,14 +26,13 @@ auto BookData::search(auto target_search,auto target_page){
     }
         if (!founded.empty()) {
             for (const std::string& data : founded) {
-                std::cout << data << std::endl;
             }
         } else {
-            return false;
+           std::cerr<<"Not found"<<std::flush;
         }
 }
 
-template<class _Open_File>
+template<class Open_File>
 auto BookData::open_file(){
  file.open("BookData.csv",std::ios::in|std::ios::out);
     if(!file.is_open()){
