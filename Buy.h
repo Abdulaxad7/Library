@@ -10,11 +10,12 @@
 #include "Book.h"
 class Buy {
 Book book;
-
-    std::string cardValidDate;
+    Buy();
+    std::string cardValidThru;
     std::string cardNumber;
 
     std::string location;
+    virtual ~Buy();
 };
 
 

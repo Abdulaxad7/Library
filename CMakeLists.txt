@@ -26,4 +26,6 @@ add_executable(untitled22 main.cpp
         BookData.cpp
         InsertBook.h
         InsertBook.cpp
+        Transactions.h
+        Transactions.cpp
 )
