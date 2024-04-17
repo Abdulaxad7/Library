@@ -10,7 +10,7 @@ static int i=1;
 
 
 template<class T>auto CreateAccount::open_file(){
-    file.open("userDataCenter.csv",std::ios::in|std::ios::out);
+    file.open("userDataCenter.csv",std::ios::in|std::ios::out|std::ios::app);
     if(!file.is_open()) {
         std::cerr << "Could not open file" << std::endl;
     }

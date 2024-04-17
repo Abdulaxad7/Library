@@ -2,7 +2,6 @@
 // Created by Abdulaxad on 15/04/24.
 //
 #include <iostream>
-#include <fstream>
 #include <sstream>
 #include <string_view>
 #include "BookData.h"
@@ -17,8 +16,6 @@ auto BookData::search(auto target_search,auto target_page){
         for (std::string field; std::getline(stringstream, field, ',');) {
             fields.push_back(field);
         }
-
-
         if (!fields.empty() && fields[target_page] == target_search) {
             founded = fields;
             break;

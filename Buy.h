@@ -8,8 +8,10 @@
 
 
 #include "Book.h"
-class Buy {
-Book book;
+#include "Transactions.h"
+class Buy :Transactions{
+    Transactions transactions;
+    Book book;
     Buy();
     std::string cardValidThru;
     std::string cardNumber;

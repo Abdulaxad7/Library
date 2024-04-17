@@ -7,6 +7,7 @@
 #include "Book.h"
 #include "BookData.h"
 #include "Administration.h"
+#include "Transactions.h"
 int main() {
 //       UserData data;
 //   if( data.checkUserName("Abdulaxad Isroilov")){
@@ -29,9 +30,18 @@ int main() {
 //    std::cout<<"true"<<std::endl;
 //book.checkPrice();
 //book.checkAuthor();
-Administration administration;
-if(administration.check_password("AbdulaxadIsroilov"))
-    std::cout<<"true"<<std::endl;
+//Administration administration;
+//if(administration.check_password("AbdulaxadIsroilov"))
+//    std::cout<<"true"<<std::endl;
+Transactions transactions;
+transactions.setCardNumber("1234 5678 9000 0000");
+transactions.setCardHolder("Abdulaxad Isroilov");
+transactions.setCardValidThru("11/34");
+transactions.setCardBalance("$1000");
+
+std::cout<<transactions.getCardHolder();
+
+
     return 0;
 }
 
