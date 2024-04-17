@@ -16,8 +16,10 @@ int main() {
 //       std::cout<<"true";
 //   }
 
+
 //InsertBook insertBook;
 //insertBook.setId("231490")->setName("C++ for Programmers")->setAuthor("James Stewart")->setDate("17/05/1990")->setPrice("$556")->setPages("2104");
+
 //    CreateAccount createAccount;
 //    createAccount.setId();
 //    createAccount.setFullname("Abdulaxad Isroilov")->setEmail("abdulaxad.isroilov@in.emp.org")->setPassword("AbdulaxadIsroilov");
@@ -43,7 +45,8 @@ transactions.setCardBalance("$1000");
 
 std::cout<<transactions.getCardNumber();
 
-Buy buy;
+
+//Buy buy;
 
 
     return 0;

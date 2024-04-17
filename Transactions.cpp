@@ -5,48 +5,67 @@
 #include <sstream>
 #include <vector>
 #include <fstream>
+#include <exception>
 #include "Transactions.h"
 
-static int i=1;
+static int TransactionNumber=0;
+
 Transactions::Transactions() {
-    file.open("CardData.csv",std::ios::in|std::ios::out|std::ios::app);
-    if(!file.is_open()){
+    fileForWrite.open("CardData.csv",std::ios::out|std::ios::app);
+    fileForRead.open("CardData.csv",std::ios::in);
+
+    if(!fileForWrite.is_open()||!fileForRead.is_open()){
         std::cerr<<"Could not open file"<<std::flush;
     }
-    file<<i<<", ";
-    i++;
+    TransactionNumber++;
+}
+
+template<class Read> auto Transactions::get(auto target_search,auto targetNumber)-> decltype(target_search){
+    if(std::getline(fileForRead,line)){
+    }
+    while(std::getline(fileForRead,line)){
+        try {
+            std::stringstream stringstream(line);
+            std::vector<std::string> fields;
+            for (std::string field; std::getline(stringstream, field);) {
+                fields.push_back(field);
+            }
+            if (!fields.empty() && fields[targetNumber] == target_search) {
+                return fields[targetNumber];
+            }
+        }catch (const std::exception&exception){
+            return exception.what();
+        }
+    }
 }
 
 
- std::string Transactions::getCardNumber()  {
+std::string_view Transactions::getCardNumber() {
 
-     std::string line;
-     std::getline(file, line);
-file>>line;
-    return line;
+    return  get<std::string>(card_number,1);
+}
+
+
+ std::string_view Transactions::getCardValidThru()  {
+    return get<std::string>(card_number,3);
 }
 
 
 
- std::string Transactions::getCardValidThru()  {
-    return card_valid_thru;
+ std::string_view Transactions::getCardHolder()  {
+    return get<std::string>(card_number,2);
 }
 
-
-
- std::string Transactions::getCardHolder()  {
-
+ std::string_view Transactions::getCardBalance()  {
+     return get<std::string>(card_number,4);
 }
 
- std::string Transactions::getCardBalance()  {
-     return card_balance;
-}
 
 
 bool Transactions::setCardBalance( std::string cardBalance) {
     this->card_balance = cardBalance;
     try{
-        file<<cardBalance<<std::endl;
+        fileForWrite<<cardBalance<<std::endl;
         return true;
     }catch (const std::exception&exception){
         return false;
@@ -55,7 +74,7 @@ bool Transactions::setCardBalance( std::string cardBalance) {
 bool Transactions::setCardHolder( std::string cardHolder) {
     this->card_holder = cardHolder;
     try{
-        file<<cardHolder<<", ";
+        fileForWrite<<cardHolder<<", ";
         return true;
     }catch (const std::exception&exception){
         return false;
@@ -64,22 +83,25 @@ bool Transactions::setCardHolder( std::string cardHolder) {
 bool Transactions::setCardValidThru( std::string cardValidThru) {
     this->card_valid_thru = cardValidThru;
     try{
-        file<<cardValidThru<<", ";
+        fileForWrite<<cardValidThru<<", ";
         return true;
     }catch (const std::exception&exception){
         return false;
     }
 }
 bool Transactions::setCardNumber( std::string cardNumber) {
-    this->card_number = cardNumber;
     try{
-        file<<cardNumber<<", ";
+        fileForWrite<<TransactionNumber<<", "<<cardNumber<<", ";
+        this->card_number = cardNumber;
         return true;
     }catch (const std::exception&exception){
         return false;
     }
 }
 Transactions::~Transactions() {
-    if(file.is_open())
-        file.close();
+    if(fileForWrite.is_open())
+        fileForWrite.close();
+    if(fileForRead.is_open())
+        fileForRead.close();
 }
+

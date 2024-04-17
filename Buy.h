@@ -16,7 +16,6 @@ public:
 private:
     Transactions transactions;
     Book book;
-
     std::string cardValidThru;
     std::string cardNumber;
 
