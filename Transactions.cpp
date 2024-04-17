@@ -11,6 +11,11 @@
 static int TransactionNumber=0;
 
 Transactions::Transactions() {
+    card_balance="";
+    card_holder="";
+    card_number="";
+    card_valid_thru="";
+
     fileForWrite.open("CardData.csv",std::ios::out|std::ios::app);
     fileForRead.open("CardData.csv",std::ios::in);
 
@@ -27,10 +32,12 @@ template<class Read> auto Transactions::get(auto target_search,auto targetNumber
         try {
             std::stringstream stringstream(line);
             std::vector<std::string> fields;
-            for (std::string field; std::getline(stringstream, field);) {
+            for (std::string field; std::getline(stringstream, field,',');) {
                 fields.push_back(field);
+
             }
-            if (!fields.empty() && fields[targetNumber] == target_search) {
+            std::cout<<fields[0]<<std::endl;
+            if ( fields[targetNumber] == target_search) {
                 return fields[targetNumber];
             }
         }catch (const std::exception&exception){
@@ -47,22 +54,23 @@ std::string_view Transactions::getCardNumber() {
 
 
  std::string_view Transactions::getCardValidThru()  {
-    return get<std::string>(card_number,3);
+    return get<std::string>(card_valid_thru,3);
 }
 
 
 
  std::string_view Transactions::getCardHolder()  {
-    return get<std::string>(card_number,2);
+
+    return get<std::string>(card_holder,2);
 }
 
  std::string_view Transactions::getCardBalance()  {
-     return get<std::string>(card_number,4);
+     return get<std::string>(card_balance,4);
 }
 
 
 
-bool Transactions::setCardBalance( std::string cardBalance) {
+bool Transactions::setCardBalance( std::string_view cardBalance) {
     this->card_balance = cardBalance;
     try{
         fileForWrite<<cardBalance<<std::endl;
@@ -71,8 +79,8 @@ bool Transactions::setCardBalance( std::string cardBalance) {
         return false;
     }
 }
-bool Transactions::setCardHolder( std::string cardHolder) {
-    this->card_holder = cardHolder;
+bool Transactions::setCardHolder( std::string_view cardHolder) {
+    this-> card_holder = cardHolder;
     try{
         fileForWrite<<cardHolder<<", ";
         return true;
@@ -80,7 +88,7 @@ bool Transactions::setCardHolder( std::string cardHolder) {
         return false;
     }
 }
-bool Transactions::setCardValidThru( std::string cardValidThru) {
+bool Transactions::setCardValidThru( std::string_view cardValidThru) {
     this->card_valid_thru = cardValidThru;
     try{
         fileForWrite<<cardValidThru<<", ";
@@ -89,10 +97,10 @@ bool Transactions::setCardValidThru( std::string cardValidThru) {
         return false;
     }
 }
-bool Transactions::setCardNumber( std::string cardNumber) {
+bool Transactions::setCardNumber( std::string_view cardNumber) {
+    this->card_number = cardNumber;
     try{
         fileForWrite<<TransactionNumber<<", "<<cardNumber<<", ";
-        this->card_number = cardNumber;
         return true;
     }catch (const std::exception&exception){
         return false;

@@ -22,16 +22,16 @@ public:
 
      std::string_view getCardValidThru() ;
 
-    bool setCardNumber( std::string cardNumber);
+    bool setCardNumber( std::string_view cardNumber);
 
 
-    bool setCardValidThru( std::string cardValidThru);
+    bool setCardValidThru( std::string_view cardValidThru);
 
 
-    bool setCardHolder( std::string cardHolder);
+    bool setCardHolder( std::string_view cardHolder);
 
 
-    bool setCardBalance( std::string cardBalance);
+    bool setCardBalance( std::string_view cardBalance);
 
 private:
     template<class Read> auto get(auto target_search,auto targetNumber)-> decltype(target_search);

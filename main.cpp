@@ -1,4 +1,8 @@
 #include <iostream>
+#include <exception>
+
+
+
 #include "UserData.h"
 #include "Views.h"
 #include "Screen.h"
@@ -43,7 +47,7 @@ transactions.setCardHolder("Abdulaxad Isroilov");
 transactions.setCardValidThru("11/34");
 transactions.setCardBalance("$1000");
 
-std::cout<<transactions.getCardNumber();
+    std::cout << transactions.getCardHolder();
 
 
 //Buy buy;
