@@ -14,29 +14,27 @@ public:
     Transactions();
     virtual ~Transactions();
 
-     std::string_view getCardNumber() ;
+     std::string getCardNumber() ;
 
-    bool setCardNumber( std::string_view cardNumber);
+    bool setCardNumber( std::string cardNumber);
 
-     std::string_view getCardValidThru() ;
+     std::string getCardValidThru() ;
 
-    bool setCardValidThru( std::string_view cardValidThru);
+    bool setCardValidThru( std::string cardValidThru);
 
-     std::string_view getCardHolder() ;
+     std::string getCardHolder() ;
 
-    bool setCardHolder( std::string_view cardHolder);
+    bool setCardHolder( std::string cardHolder);
 
-     std::string_view getCardBalance() ;
+     std::string getCardBalance() ;
 
-    bool setCardBalance( std::string_view cardBalance);
+    bool setCardBalance( std::string cardBalance);
 
 private:
-    template<class Set>auto set(auto card,auto place);
-    template<class Get>auto get(auto card,auto cardTarget);
-    std::string_view card_balance;
-    std::string_view card_holder;
-    std::string_view card_number;
-    std::string_view card_valid_thru;
+    std::string card_balance;
+    std::string card_holder;
+    std::string card_number;
+    std::string card_valid_thru;
     std::string line;
     std::string field;
     std::fstream file;

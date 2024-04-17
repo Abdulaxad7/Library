@@ -9,15 +9,19 @@
 
 #include "Book.h"
 #include "Transactions.h"
-class Buy :Transactions{
+class Buy :private Transactions,private Book{
+public:
+    Buy();
+    virtual ~Buy();
+private:
     Transactions transactions;
     Book book;
-    Buy();
+
     std::string cardValidThru;
     std::string cardNumber;
 
     std::string location;
-    virtual ~Buy();
+
 };
 
 

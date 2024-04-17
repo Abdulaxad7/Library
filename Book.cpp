@@ -7,27 +7,21 @@ template<class Check>auto Book::checking(auto target_number){
     std::vector<std::string>s=*check;
     return s[target_number];
 }
+std::string Book::checkPrice()  {
+   return checking<void>(5);
 
-double Book::checkPrice()  {
-    checking<void>(5);
-    return price;
 }
-
-int Book::checkPages()  {
-    checking<void>(6);
-    return pages;
+std::string Book::checkPages()  {
+   return checking<void>(6);
 }
 
  std::string Book::checkBookName()  {
-    checking<void>(2);
-    return book_name;
-}
+   return checking<void>(2);
 
+}
  std::string Book::checkAuthor()  {
-    checking<void>(3);
-    return author;
+   return checking<void>(3);
 }
-
 bool Book::exist_by_book_name(std::string name) {
     *check= check_by_book_name(name);
     if(!check->empty())
@@ -41,7 +35,6 @@ bool Book::exist_by_book_id(std::string id) {
         return true;
     return false;
 }
-
 bool Book::exist_by_book_author(std::string author) {
     *check= check_by_book_author(author);
     if(!check->empty())

@@ -18,9 +18,9 @@ public:
     bool exist_by_book_id(std::string);
     bool exist_by_book_author(std::string);
 
-    double checkPrice() ;
+    std::string checkPrice() ;
 
-    int checkPages() ;
+    std::string checkPages() ;
 
      std::string checkBookName() ;
 
