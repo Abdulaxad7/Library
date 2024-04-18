@@ -1,18 +1,6 @@
-#include <iostream>
-#include <exception>
 
-
-
-#include "UserData.h"
-#include "Views.h"
 #include "Screen.h"
-#include "CreateAccount.h"
-#include "InsertBook.h"
-#include "Book.h"
-#include "BookData.h"
-#include "Administration.h"
-#include "Transactions.h"
-#include "Buy.h"
+
 
 
 int main() {
@@ -52,11 +40,12 @@ int main() {
 //    std::cout << transactions.getCardBalan();
 
 
-Buy buy;
-buy.setCardNumber("1234 5678 9000 0000")->setCardHolder("Abdulaxad Isroilov")->setCardValidThru("11/24")->setCardBalance("");
-if(buy.getCardBalance())
-    std::cout<<"set"<<std::endl;
-
+//Buy buy;
+//buy.setCardNumber("1234 5678 9000 0000")->setCardHolder("Abdulaxad Isroilov")->setCardValidThru("11/24")->setCardBalance("");
+//if(buy.getCardBalance())
+//    std::cout<<"set"<<std::endl;
+Screen screen;
+    screen.start();
 
     return 0;
 }

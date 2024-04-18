@@ -9,9 +9,10 @@
 #include "Views.h"
 class Screen final: public Views{
 public:
-    void welcome()override ;
-    void display()  override;
+    template<class A>auto space(auto x);
+    void display() override;
     void start()  override;
+    void show1();
 };
 
 
