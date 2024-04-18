@@ -14,7 +14,9 @@
 #include "Transactions.h"
 #include "Buy.h"
 
+
 int main() {
+
 //       UserData data;
 //   if( data.checkUserName("Abdulaxad Isroilov")){
 //       std::cout<<"true";
@@ -41,17 +43,19 @@ int main() {
 //Administration administration;
 //if(administration.check_password("AbdulaxadIsroilov"))
 //    std::cout<<"true"<<std::endl;
-Transactions transactions;
-transactions.setCardNumber("1234 5678 9000 0000");
-transactions.setCardHolder("Abdulaxad Isroilov");
-transactions.setCardValidThru("11/34");
-transactions.setCardBalance("$1000");
+//Transactions transactions;
+//transactions.setCardNumb("1234 5678 9000 0000");
+//transactions.setCardHold("Abdulaxad Isroilov");
+//transactions.setCardValid("11/34");
+//transactions.setCardBalan();
+////
+//    std::cout << transactions.getCardBalan();
 
-    std::cout << transactions.getCardHolder();
 
-
-//Buy buy;
-
+Buy buy;
+buy.setCardNumber("1234 5678 9000 0000")->setCardHolder("Abdulaxad Isroilov")->setCardValidThru("11/24")->setCardBalance("");
+if(buy.getCardBalance())
+    std::cout<<"set"<<std::endl;
 
     return 0;
 }

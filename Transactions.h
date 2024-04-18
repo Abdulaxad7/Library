@@ -8,37 +8,37 @@
 #include <sstream>
 #include <fstream>
 class Transactions {
-
-
 public:
     Transactions();
     virtual ~Transactions();
 
-     std::string_view getCardBalance() ;
 
-     std::string_view getCardHolder() ;
+public:
+     std::string getCardBalan() ;
 
-     std::string_view getCardNumber() ;
+     std::string getCardHold() ;
 
-     std::string_view getCardValidThru() ;
+     std::string getCardNumb() ;
 
-    bool setCardNumber( std::string_view cardNumber);
+     std::string getCardValid() ;
 
+    bool setCardBalan();
 
-    bool setCardValidThru( std::string_view cardValidThru);
-
-
-    bool setCardHolder( std::string_view cardHolder);
+    bool setCardNumb( std::string );
 
 
-    bool setCardBalance( std::string_view cardBalance);
+    bool setCardValid( std::string );
+
+
+    bool setCardHold( std::string );
+
 
 private:
     template<class Read> auto get(auto target_search,auto targetNumber)-> decltype(target_search);
-    std::string_view card_balance;
-    std::string_view card_holder;
-    std::string_view card_number;
-    std::string_view card_valid_thru;
+    std::string card_balance;
+    std::string card_holder;
+    std::string card_number;
+    std::string card_valid_thru;
     std::string line;
     std::string field;
     std::ofstream fileForWrite;

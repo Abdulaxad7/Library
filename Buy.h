@@ -6,20 +6,32 @@
 #define UNTITLED22_BUY_H
 
 
-
-#include "Book.h"
 #include "Transactions.h"
-class Buy :private Transactions,private Book{
+#include "Book.h"
+class Buy : private Transactions,private Book{
 public:
+    Buy* setCardValidThru(const std::string&);
+
+    Buy* setCardNumber(const std::string&);
+
+    Buy* setCardHolder(const std::string&);
+
+    Buy* setCardBalance(const std::string&);
+
+    bool getCardValidThru();
+
+    bool getCardNumber();
+
+    bool getCardBalance();
+
     Buy();
-    virtual ~Buy();
+    virtual ~Buy()=default;
 private:
-    Transactions transactions;
     Book book;
+    std::string cardHolder;
     std::string cardValidThru;
     std::string cardNumber;
-
-    std::string location;
+    std::string cardBalance;
 
 };
 

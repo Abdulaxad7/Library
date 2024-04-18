@@ -35,7 +35,6 @@ CreateAccount::CreateAccount() {
 
 
 CreateAccount* CreateAccount::setId() {
-    std::string line;
 
     std::srand(time(0));
     id=rand()%99999999;
