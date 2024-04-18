@@ -57,6 +57,7 @@ buy.setCardNumber("1234 5678 9000 0000")->setCardHolder("Abdulaxad Isroilov")->s
 if(buy.getCardBalance())
     std::cout<<"set"<<std::endl;
 
+
     return 0;
 }
 

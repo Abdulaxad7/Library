@@ -4,7 +4,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
-#include <fstream>
+#include <stdlib.h>
 #include <exception>
 #include "Transactions.h"
 
@@ -80,14 +80,17 @@ std::string Transactions::getCardNumb() {
 
 
 bool Transactions::setCardBalan() {
+    static bool seedSet = false;
+    if (!seedSet) {
 
-    std::srand(time(0));
+        seedSet = true;
+    }
     card_balance=std::to_string(rand()%9999);
 
     try{
         fileForWrite<<card_balance<<std::endl;
         return true;
-    }catch (const std::exception&exception){
+    }catch (const std::ios_base::failure&exception){
         return false;
     }
 }
@@ -96,7 +99,7 @@ bool Transactions::setCardHold( std::string cardHolder) {
     try{
         fileForWrite<<cardHolder<<",";
         return true;
-    }catch (const std::exception&exception){
+    }catch (const std::ios_base::failure&exception){
         return false;
     }
 }
@@ -105,7 +108,7 @@ bool Transactions::setCardValid( std::string cardValidThru) {
     try{
         fileForWrite<<cardValidThru<<",";
         return true;
-    }catch (const std::exception&exception){
+    }catch (const std::ios_base::failure&exception){
         return false;
     }
 }
@@ -114,7 +117,7 @@ bool Transactions::setCardNumb( std::string cardNumber) {
     try{
         fileForWrite<<TransactionNumber<<","<<cardNumber<<",";
         return true;
-    }catch (const std::exception&exception){
+    }catch (const std::ios_base::failure&exception){
         return false;
     }
 }
