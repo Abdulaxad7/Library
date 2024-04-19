@@ -13,9 +13,6 @@ add_executable(untitled22 main.cpp
         CreateAccount.cpp
         Encryption.h
         Encryption.cpp
-        Views.h
-        Screen.h
-        Screen.cpp
         Book.h
         Book.cpp
         Buy.h
@@ -28,4 +25,9 @@ add_executable(untitled22 main.cpp
         InsertBook.cpp
         Transactions.h
         Transactions.cpp
+        Views.h
+        Screen.h
+        Screen.cpp
+        Set.h
+        Set.cpp
 )

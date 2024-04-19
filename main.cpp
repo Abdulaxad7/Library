@@ -1,8 +1,5 @@
-
 #include "Screen.h"
-
-
-
+#include "Set.h"
 int main() {
 
 //       UserData data;
@@ -44,8 +41,13 @@ int main() {
 //buy.setCardNumber("1234 5678 9000 0000")->setCardHolder("Abdulaxad Isroilov")->setCardValidThru("11/24")->setCardBalance("");
 //if(buy.getCardBalance())
 //    std::cout<<"set"<<std::endl;
-Screen screen;
-    screen.start();
+
+//    std::cout<<screen.show1();
+
+Set set;
+set.choseOption();
+   if(true)
+       system("clear");
 
     return 0;
 }

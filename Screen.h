@@ -7,12 +7,22 @@
 
 
 #include "Views.h"
-class Screen final: public Views{
+#include <vector>
+#include <iostream>
+class Screen : private Views{
 public:
-    template<class A>auto space(auto x);
+    std::vector<std::string>data;
+    template<class A>auto space(auto x)->void ;
     void display() override;
     void start()  override;
-    void show1();
+    std::string show1()override;
+   std::string show2()override;
+  std::string show3()override;
+   std::string show4()override;
+    int load2();
+
+private:
+    std::string option;
 };
 
 
