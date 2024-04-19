@@ -46,7 +46,6 @@ int main() {
 
 Set set;
 set.choseOption();
-   if(true)
        system("clear");
 
     return 0;

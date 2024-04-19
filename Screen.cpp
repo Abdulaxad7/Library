@@ -289,7 +289,7 @@ std::string Screen::show2(){
             std::cout<< GREEN <<"\033[1;7m" <<"|"<<RESET<<" ";
             std::string s;
             std::string m;
-            std::getline(std::cin,s);
+            std::cin>>s;
             std::cout<<"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
             std::cin>>m;
 
