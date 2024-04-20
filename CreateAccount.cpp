@@ -33,7 +33,6 @@ CreateAccount::CreateAccount() {
     i++;
 }
 
-
 CreateAccount* CreateAccount::setId() {
 
     std::srand(time(0));

@@ -18,11 +18,12 @@
 #include "Transactions.h"
 #include "Screen.h"
 
-class Set final : private Screen,private UserData{
+class Set final : private Screen,private UserData,private CreateAccount{
 public:
     void choseOption();
 
 private:
+    std::vector<std::string>copy;
     std::string option;
 };
 
