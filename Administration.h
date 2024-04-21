@@ -11,13 +11,12 @@ class Administration: private Encryption{
 public:
     Administration();
 
-    virtual ~Administration();
+    ~Administration() override;
     bool check_id(std::string);
     bool check_password(std::string);
 private:
     std::string id;
     std::string password;
-    std::string field;
     std::string line;
     std::fstream file;
 };

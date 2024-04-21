@@ -8,12 +8,11 @@
 
 
  std::string Encryption::encHashPass(std::string_view password){
-    if(password=="AbdulaxadIsroilov")
-        return "24=:5B7:-CDCADFK";
+
     char*hash=new char[std::size(password)];
-    for(size_t i=0;i<std::size(password);i++){
+    for(size_t i=0;i<std::size(password);i++)
         hash[i]=(+password[i]>>1)+(+i);
-    }
+
     return hash;
 
 }

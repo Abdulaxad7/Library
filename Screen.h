@@ -9,6 +9,7 @@
 #include "Views.h"
 #include <vector>
 #include <iostream>
+
 class Screen : private Views{
 public:
     std::vector<std::string>data;
@@ -16,9 +17,14 @@ public:
     void display() override;
     void start()  override;
     std::string show1()override;
-   std::string show2()override;
-  std::string show3()override;
-   std::string show4()override;
+    std::string show2()override;
+    std::string show3()override;
+    std::string show4()override;
+    std::string bookStore()override;
+    std::string  bookStoreSearch()override;
+     std::string  bookStoreSearch2()override;
+     std::string  bookStoreSearch3()override;
+    std::string ifFound()override;
     int load2();
 
 private:

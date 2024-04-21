@@ -17,7 +17,7 @@ class CreateAccount :private Encryption{
 
     std::fstream file;
 public:
-    CreateAccount();
+   explicit CreateAccount();
     ~CreateAccount();
     CreateAccount(std::string_view ,  std::string_view ,  std::string_view , int id);
 

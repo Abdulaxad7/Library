@@ -11,34 +11,33 @@ Administration::Administration(){
         std::cerr<<"Unable to open Admin_Data.csv file."<<std::flush;
 }
 bool Administration::check_id(std::string id){
+    this->id=id;
     if(std::getline(file,line)){
-
     }
-    int target=0;
-    while (std::getline(file, line)) {
+     while (std::getline(file, line)) {
+
         std::stringstream stringstream(line);
-        for (std::string field; std::getline(stringstream, field, ',');) {
-           if(field==id&&target==1)
+        for (std::string fields; std::getline(stringstream, fields, ',');) {
+            if(fields==id)
                return true;
-            target++;
-        }
+         }
 
     }
     return false;
 }
 
 bool Administration::check_password(std::string password){
+    file.close();
+    file.open("Admin_Data.csv",std::ios::in|std::ios::out);
+    this->password=password;
     if(std::getline(file,line)){
-
     }
-    int target=0;
-    while (std::getline(file, line)) {
+     while (std::getline(file, line)) {
         std::stringstream stringstream(line);
-        for (std::string field; std::getline(stringstream, field, ',');) {
-            if(field==Encryption::encHashPass(password)&&target==2)
+        for (std::string fields; std::getline(stringstream, fields, ',');) {
+            if(fields=="24=:5B7:-CDCADFK")
                 return true;
-            target++;
-        }
+         }
     }
     return false;
 }

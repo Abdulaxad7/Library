@@ -43,12 +43,17 @@ int main() {
 //    std::cout<<"set"<<std::endl;
 
 //    std::cout<<screen.show1();
+//
+//Set set;
+//set.choseOption();
 
-Set set;
-set.choseOption();
-       system("clear");
+Screen screen;
+screen.ifFound();
+//Book book;
+//std::cout<<book;
 
-    return 0;
+
+return 0;
 }
 
 
