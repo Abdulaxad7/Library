@@ -24,8 +24,6 @@ auto BookData::search(auto target_search,auto target_page){
         if (!founded.empty()) {
             for (const std::string& data : founded) {
             }
-        } else {
-           std::cerr<<"Not found"<<std::flush;
         }
 }
 

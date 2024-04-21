@@ -3,7 +3,7 @@
 //
 #include <iostream>
 #include "Set.h"
-
+#include <thread>
 #include <filesystem>
 
 void Set::choseOption(){
@@ -84,8 +84,8 @@ void Set::func1(){
 void Set::choseOption2(){
 
     option=Screen::bookStore();
-    if(option=="1"||option=="searchbybookname"||option=="bookname"){
 
+    if(option=="1"||option=="searchbybookname"||option=="bookname"){
         func2();
     }
     if(option=="2"||option=="searchbybookauthor"||option=="bookauthor"){
@@ -96,32 +96,145 @@ void Set::choseOption2(){
     }
 }
 
-
+int Set::load(){
+for(int i=0;i<15;i++) {
+    std::this_thread::sleep_for(std::chrono::milliseconds(250));
+    std::cout << "\b—" << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(250));
+    std::cout << "\b\\" << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(250));
+    std::cout << "\b|" << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(250));
+    std::cout << "\b/" << std::flush;
+}
+}
 
 
 
 
 void Set::func2(){
     std::string search;
-   search=bookStoreSearch();
 
-   if(exist_by_book_name(search)){
-       std::cout<<"Your Book Found ";
-   }
+    search= bookStoreSearch();
+    std::cout<<"\n\033[38;5;28m Please wait for some time.\n Searching book named: "<<search<<"  "<<load();
+     if(book.exist_by_book_name(search)){
+         std::cout<<"\n\n";
+        func5();
+     }
+     else{
+         std::cout<<"\n\033[1;31m We are sorry, but currently we do not have book named: "<<search<<"\n"<<std::endl;
+         search.clear();
+         choseOption2();
+     }
 
 }
-void Set::func3(){
+
+
+
+
+void Set::func3() {
     std::string search;
-    search=bookStoreSearch2();
-    std::cout<<search;
-//    if(exist_by_book_author(search)){
-//        std::cout<<"Your Book Found ";
-//    }
+    search = bookStoreSearch2();
+    std::cout<<"\n\033[38;5;28m Please wait for some time.\n Searching book written by: "<<search<<"   "<<load();
+    if (book.exist_by_book_author(search)) {
+std::cout<<"\n\n";
+        func5();
+    }
+    else{
+        std::cout<<"\n\033[1;31m We are sorry, but currently we do not have book written by: "<<search<<"\n"<<std::endl;
+        search.clear();
+        choseOption2();
+    }
 }
+
+
+
+
 void Set::func4(){
     std::string search;
     search=bookStoreSearch3();
-    if(exist_by_book_id(search)){
-        std::cout<<"Your Book Found ";
+    std::cout<<"\n\033[38;5;28m Please wait for some time.\n Searching book with id: "<<search<<"   "<<load();
+    if(book.exist_by_book_id(search)){
+        std::cout<<"\n\n";
+        func5();
+    }
+    else{
+        std::cout<<"\n\033[1;31m We are sorry, but currently we do not have book with id: "<<search<<"\n"<<std::endl;
+        search.clear();
+        choseOption2();
     }
 }
+
+
+void Set::func5(){
+    std::string search;
+   search= ifFound();
+
+   if(search=="1"||search.contains("Get book Name")||search.contains("GetbookName")||search.contains("getbookname")){
+       std::cout<<"\n\033[38;5;28m The book name is: "<<book.checkBookName()<<"\n";
+       std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+       func5();
+   }
+    if(search=="2"||search.contains("Get book author")||search.contains("Getbookauthor")||search.contains("getbookauthor")){
+        std::cout<<"\n\033[38;5;28m This book was written by: "<<book.checkAuthor()<<"\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+        func5();
+    }
+    if(search=="3"||search.contains("Get book id")||search.contains("Getbookid")||search.contains("getbookid")){
+        std::cout<<"\n\033[38;5;28m This book's id: "<<book.checkId()<<"\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+        func5();
+    }
+    if(search=="4"||search.contains("Get book price")||search.contains("Getbookprice")||search.contains("getbookprice")){
+        std::cout<<"\n\033[38;5;28m This book's price: "<<book.checkPrice()<<"\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+        func5();
+
+    }
+    if(search=="5"||search.contains("Get book pages")||search.contains("Getbookpages")||search.contains("getbookpages")){
+        std::cout<<"\n\033[38;5;28m This book contains : "<<book.checkPages()<<" pages."<<"\n";
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+        func5();
+
+    }
+    if(search=="6"||search.contains("Get all data")||search.contains("Getalldata")||search.contains("getalldata")){
+        std::cout<<"\n\033[38;5;28m"<<book;
+        std::cout<<std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
+
+        func5();
+    }
+    if(search=="-1"||search.contains("back")||search.contains("Back")){
+        std::cout<<std::endl;
+        std::this_thread::sleep_for(std::chrono::milliseconds(10000));
+        choseOption2();
+    }
+    else{
+        std::cout<<"\n\033[1;31m Wrong choice!!!\n";func5();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

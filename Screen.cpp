@@ -8,6 +8,7 @@
 #include "Screen.h"
 #include <cctype>
 #include <algorithm>
+#include <strstream>
 #include "Set.h"
 std::string_view GREEN=  "\033[38;5;28m";
 std::string_view RESET=  "\033[0m";
@@ -889,17 +890,22 @@ std::string  Screen::bookStoreSearch(){
             }
         }
     }
+char s[100];
 
     for(int i=0;i<38;i++){
         std::cout<< GREEN <<"\033[1;4m" <<"———";
 
         if(i==37){
             std::cout<< GREEN <<"\033[1;7m" <<"|"<<RESET<<" ";
-            std::cin>>option;
-        }
+            if(!option.empty())
+            option.clear();
 
+        for(int i=0;i<2;i++) {
+                std::getline(std::cin, option);
+        }
+        }
     }
-    return  "";
+    return  option;
 
 }
 
@@ -1021,11 +1027,14 @@ std::string  Screen::bookStoreSearch2(){
 
         if(i==37){
             std::cout<< GREEN <<"\033[1;7m" <<"|"<<RESET<<" ";
-            std::cin>>option;
+            if(!option.empty())
+                option.clear();
+            for(int i=0;i<2;i++) {
+                std::getline(std::cin, option);
+            }
         }
-
     }
-    return  "";
+    return  option;
 }
 
 
@@ -1150,12 +1159,19 @@ std::string  Screen::bookStoreSearch3(){
 
         if(i==37){
             std::cout<< GREEN <<"\033[1;7m" <<"|"<<RESET<<" ";
-            std::cin>>option;
+            if(!option.empty())
+                option.clear();
+
+
+            for(int i=0;i<2;i++) {
+                std::getline(std::cin, option);
+            }
         }
+
 
     }
 
-    return  "";
+    return  option;
 }
 
 
@@ -1177,7 +1193,7 @@ std::string Screen::ifFound(){
             }
             std::cout <<std:: endl;
 
-            for (int k = 0; k < 25; k++) {
+            for (int k = 0; k < 31; k++) {
                 if (k % 2 == 0) {
                     if (k == 0) {
                         std::cout << RESET << GREEN << LINE1 << "|| "<<" ||" << std::setw(16) <<LINE2<<
@@ -1231,9 +1247,9 @@ std::string Screen::ifFound(){
                                   <<std::setw(14)<<"||" << std::endl;
                     }
                     if (k == 8) {
-                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(13) << LINE
-                                  << "——————————| Get book book author |——————————" << RESET
-                                  << std::setw(15) << GREEN << "||"
+                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(15) << LINE
+                                  << "——————————| Get book author |——————————" << RESET
+                                  << std::setw(18) << GREEN << "||"
                                   <<std::setw(10)<<"|"<<"_____"
                                   <<std::setw(9)<<"__|__"
                                   <<std::setw(6)<<"|"<<"___)"
@@ -1265,31 +1281,56 @@ std::string Screen::ifFound(){
                     if (k == 16) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(15) << LINE
                                   << "——————————| Get book price |——————————" << RESET
-                                  << std::setw(19) << GREEN << "||" <<std::setw(88)<<
+                                  << std::setw(19) << GREEN << "||"
+                                  <<std::setw(50)<<"||"<<LINE
+
+                                << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << RESET
+                                  <<std::setw(1)<<
                                   RESET<<GREEN<<"||"<< std::endl;
                     }
                     if (k == 18) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(7) << LINE
                                   << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << RESET
-                                  << std::setw(8) << GREEN << "||"<<std::setw(86)<<"||" << std::endl;
+                                  << std::setw(8) << GREEN << "||"
+                                  <<std::setw(50)<<"||"
+                                    <<std::setw(9)<<LINE
+                                    <<"—————————| Back |—————————(-1)"
+                                  <<std::setw(5)<<RESET<<GREEN<<"||" << std::endl;
                     }
 
                     if (k == 20) {
-                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(16) << LINE
-                                  << "——————————| Get all data |——————————" << RESET
-                                  << std::setw(20) << GREEN << "||" <<std::setw(85)<<
-                                  RESET<<GREEN<<"   ||"<< std::endl;
+                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(15) << LINE
+                                  << "——————————| Get book pages |——————————" << RESET
+                                  << std::setw(19) << GREEN << "||"
+                                  <<std::setw(50)<<"||"<<LINE
+                                << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << RESET
+
+
+                                  <<std::setw(1)<<
+                                  RESET<<GREEN<<"||"<< std::endl;
                     }
+
                     if (k == 22) {
-                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(7) << LINE
-                                  << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << RESET
-                                  << std::setw(8) << GREEN << "||"<<std::setw(86)<<"||" << std::endl;
-                    } if (k == 22) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(7) << LINE
                                   << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << RESET
                                   << std::setw(8) << GREEN << "||"<<std::setw(86)<<"||" << std::endl;
                     }
                     if (k == 24) {
+                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(16) << LINE
+                                  << "——————————| Get all data |——————————" << RESET
+                                  << std::setw(20) << GREEN << "||" <<std::setw(85)<<
+                                  RESET<<GREEN<<"   ||"<< std::endl;
+                    }
+                    if (k == 26) {
+                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(7) << LINE
+                                  << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << RESET
+                                  << std::setw(8) << GREEN << "||"<<std::setw(86)<<"||" << std::endl;
+                    } if (k == 28) {
+                        std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(7) << LINE
+                                  << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << RESET
+                                  << std::setw(8) << GREEN << "||"<<std::setw(86)<<"||" << std::endl;
+                    }
+                    if (k == 30) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(16) << LINE
                                   << "——————————| Buy this book |——————————" << RESET
                                   << std::setw(19) << GREEN << "||" <<std::setw(56)<<
@@ -1318,7 +1359,7 @@ std::string Screen::ifFound(){
 
     }
 
-    return  "";
+    return  option;
 }
 
 

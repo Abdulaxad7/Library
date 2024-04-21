@@ -44,12 +44,15 @@ int main() {
 
 //    std::cout<<screen.show1();
 //
-//Set set;
-//set.choseOption();
+Set set;
+set.choseOption2();
 
-Screen screen;
-screen.ifFound();
+//Screen screen;
+//screen.ifFound();
+
+
 //Book book;
+//if(book.exist_by_book_name("Java: Spring for Beginners"));
 //std::cout<<book;
 
 

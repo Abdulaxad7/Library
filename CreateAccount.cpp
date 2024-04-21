@@ -29,8 +29,7 @@ CreateAccount::CreateAccount(std::string_view password,  std::string_view fullna
 
 CreateAccount::CreateAccount() {
     open_file<void>();
-    file<<i<<",";
-    i++;
+
 }
 
 CreateAccount* CreateAccount::setId() {
@@ -39,7 +38,9 @@ CreateAccount* CreateAccount::setId() {
     id=rand()%99999999;
 
     try{
-        file<<id<<",";
+
+        file<<i<<","<<id<<",";
+        i++;
         return this;
     }catch (const std::exception&exception) {
         return this;

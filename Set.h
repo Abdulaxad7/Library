@@ -24,11 +24,14 @@ public:
     void choseOption2();
 
 private:
+    Book book;
     void func();
     void func1();
     void func2();
     void func3();
     void func4();
+    void func5();
+    int load();
     std::string option;
 };
 
