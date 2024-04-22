@@ -8,7 +8,9 @@
 class InsertBook {
 public:
     InsertBook();
+
     InsertBook(std::string_view ,std::string_view ,std::string_view ,std::string_view,std::string_view,std::string_view );
+
     InsertBook* setId( std::string_view );
 
     InsertBook* setName( std::string_view );
@@ -20,7 +22,6 @@ public:
     InsertBook* setPrice( std::string_view );
 
     InsertBook* setPages( std::string_view );
-
 
     virtual ~InsertBook();
 

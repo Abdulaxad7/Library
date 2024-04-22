@@ -605,7 +605,7 @@ std::string Screen::show4() {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(19) << LINE2
                                   << "——————————| Admin |——————————" << RESET
                                   << std::setw(24) << GREEN << "||"
-                                  <<std::setw(56)<< "\033[1;7m" << "|"<<RESET<<GREEN<<"\033[1;1m ENTER YOUR NAME and "<<std::setw(14)<< "\033[1;7m" << "|"<<RESET<<GREEN<<"   ||"<< std::endl;
+                                  <<std::setw(56)<< "\033[1;7m" << "|"<<RESET<<GREEN<<"\033[1;1m ENTER YOUR ID and "<<std::setw(16)<< "\033[1;7m" << "|"<<RESET<<GREEN<<"   ||"<< std::endl;
                     }
                 }
             }
@@ -1364,34 +1364,250 @@ std::string Screen::ifFound(){
 
 
 
+static int count =0;
+std::vector<std::string> Screen::inserting() {
+    std::string d;
+    std::string d2;
+    std::string d3;
 
+    std::vector<std::string> database;
+    space<void>(23);
+    std::cout << "\n";
+    std::cout << RESET << GREEN << LINE1 << "||\033[1;3m" << std::setw(44) << "Inserting new card..." << std::setw(25)
+              << RESET << GREEN << "\033[1;1m||";
+    std::cout << "\n";
+    space<void>(23);
+    std::cout << "\n";
+    space<void>(23);
+    std::cout << "\n";
 
+    for (int i = 0; i < 10; i++) {
+        if (i % 2 == 0) {
+            if (i == 0) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter your card number: ";
+                if (count == 0) {
+                    for (int i = 0; i < 2; i++) {
+                        std::getline(std::cin, d);
+                        count++;
+                    }
+                } else {
+                    std::getline(std::cin, d);
+                }
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+            if (i == 0) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
 
+            }
+            if (i == 2) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter your card thru date: ";
+                std::getline(std::cin, d2);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
 
+            }
 
+            if (i == 2) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
+            }
+            if (i == 4) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter card holder name: ";
+                std::getline(std::cin, d3);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+        }
+    }
+    space<void>(23);
 
+    std::cout << "\n";
+    if (std::any_of(d.begin(), d.end(), ::isalpha)) {
+        std::cout << "\033[1;31m Card number cannot contain letters!!!\n";
+        inserting();
+    }
 
+    if ( [&d]() {int count = 0;for (char c : d) {if (isdigit(c)) {count++; }}return count;}() != 16){
+        std::cout<<"\033[1;31m Card  number has to be 16 digits!!!\n";inserting();
+    }
+    if((d2.length() >= 6 ||isalpha(d2[0]) || isalpha(d2[1]) || isalpha(d2[3]) || isalpha(d2[4]))){
+        std::cout<<"\033[1;31m Card thru date cannot contain letters!!!\n";
+        std::cout<<"\033[1;31m Please write on this sequence (month/year)!!!\n";
+        inserting();
 
+    }
+    if(!(isdigit(d2[0])&&isdigit(d2[1])&&d2[2]=='/'&&isdigit(d2[3])&&isdigit(d2[4]))){
+        std::cout<<"\033[1;31m Please write on this sequence (month/year)!!!\n";
+        inserting();
 
+    }
 
+    if(!((0<=d2[0]<=1)&&(d2[1]>=0))){
+        std::cout<<"\033[1;31m Please write on this sequence (month/year)!!!\n";
+        inserting();
+    }
+    if(std::any_of(d3.begin(),d3.end(),::isdigit)){
+        std::cout<<"\033[1;31m Card holder's name cannot contain number!!!\n";
+        inserting();
+    }
+    if(islower(d3[0])){
+        std::cout<<"\033[1;31m Card holder's name should start with uppercase!!!\n";
+        inserting();
+    }
+    if(!database.empty())
+        database.clear();
 
+    database.push_back(d);
+    database.push_back(d3);
+    database.push_back(d2);
 
-
-
-
-int Screen::load2(){
-    for(;;){
-        std::this_thread::sleep_for(std::chrono::milliseconds(250));
-        std::cout<<"\b\b."<<std::flush;
-        std::this_thread::sleep_for(std::chrono::milliseconds(250));
-        std::cout<<"\b\b.."<<std::flush;
-        std::this_thread::sleep_for(std::chrono::milliseconds(250));
-        std::cout<<"\b\b..."<<std::flush;
+    return database;
 }
+
+
+
+
+
+void Screen::thank() {
+
+
+    space<void>(50);
+
+    std::cout<<RESET<<std::endl;
+
+    for(int i=0;i<51;i++){
+        if(i==25) {
+            std::cout << RESET << GREEN << LINE1 << "||\033[1;3m" << std::setw(85)
+                      << "Thank you for choosing our library"
+                      << RESET << GREEN << std::setw(67) << LINE1 << "||" << std::endl;
+
+            std::cout << RESET << GREEN << LINE1 << "||\033[1;3m" << std::setw(91)
+                      << "Our assistants will contact you within a day";
+        }
+        if(i>49) {
+            std::cout << RESET << GREEN << std::setw(61) << LINE1 << "||" << std::endl;
+        }
+
+    }
+    space<void>(50);
+
+
+    std::cout<<"\n";
+//    std::cout<<show1();
+    system("clear");
 }
 
 
 
+
+
+static int count2 =0;
+
+std::vector<std::string> Screen::insertingNewBook() {
+    std::string d;
+    std::string d2;
+    std::string d3;
+    std::string d4;
+    std::string d5;
+    std::string d6;
+    std::vector<std::string> database;
+    space<void>(23);
+    std::cout << "\n";
+    std::cout << RESET << GREEN << LINE1 << "||\033[1;3m" << std::setw(44) << "Inserting new book..." << std::setw(25)
+              << RESET << GREEN << "\033[1;1m||";
+    std::cout << "\n";
+    space<void>(23);
+    std::cout << "\n";
+    space<void>(23);
+    std::cout << "\n";
+
+    for (int i = 0; i < 11; i++) {
+        if (i % 2 == 0) {
+            if (i == 0) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter book id: ";
+                        std::getline(std::cin, d);
+
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+            if (i == 0) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
+
+            }
+            if (i == 2) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter book name: ";
+                std::getline(std::cin, d2);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+
+            }
+
+            if (i == 2) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
+            }
+            if (i == 4) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter book author: ";
+                std::getline(std::cin, d3);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+            if (i == 4) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
+            }
+            if (i == 6) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter book release date: ";
+                std::getline(std::cin, d4);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+            if (i == 6) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
+            }
+            if (i == 8) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter book price: ";
+                std::getline(std::cin, d5);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+            if (i == 8) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
+            }
+            if (i == 10) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;3m"
+                          << "  Enter book pages: ";
+                std::getline(std::cin, d6);
+                std::this_thread::sleep_for(std::chrono::milliseconds(1000));
+            }
+            if (i == 10) {
+                std::cout << RESET << GREEN << LINE1 << "||\033[1;1m"
+                          << "•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••||\n";
+            }
+        }
+    }
+    space<void>(23);
+
+    std::cout << "\n";
+
+    if(!database.empty())
+        database.clear();
+
+    database.push_back(d);
+    database.push_back(d2);
+    database.push_back(d3);
+    database.push_back(d4);
+    database.push_back(d5);
+    database.push_back(d6);
+
+
+    return database;
+}
 
 int load(){
 
@@ -1405,7 +1621,6 @@ int load(){
         std::cout<<"\b/"<<std::flush;
 
 }
-
 void startInfo() {
     std::chrono::system_clock::time_point now = std::chrono::system_clock::now();
 
@@ -1425,7 +1640,6 @@ auto dash=[](){
     }
     return "-";};
     std::cout <<buffer <<"INFO  "<<std::rand()%99999<<dash()<<"Loading "<<load()<<"\n";
-
 }
 void Screen::start(){
     std::cout<<GREEN;

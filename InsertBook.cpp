@@ -63,7 +63,7 @@ InsertBook *InsertBook::setDate(std::string_view date) {
 InsertBook *InsertBook::setPrice(std::string_view price) {
     this->price = price;
     try{
-        file<<price<<",";
+        file<<"$"<<price<<",";
     }catch (const std::exception&exception){
         return this;
     }

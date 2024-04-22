@@ -16,12 +16,9 @@ protected:
 
     std::vector<std::string>check_by_book_author(std::string_view);
 
-
 public:
     BookData();
-
     virtual ~BookData();
-
 
 private:
     template<class Search>auto search(auto target_search,auto target_page);

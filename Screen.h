@@ -11,24 +11,30 @@
 #include <iostream>
 
 class Screen : private Views{
+
+
 public:
-    std::vector<std::string>data;
-    template<class A>auto space(auto x)->void ;
-    void display() override;
     void start()  override;
+protected:
+    std::vector<std::string>data;
     std::string show1()override;
     std::string show2()override;
     std::string show3()override;
     std::string show4()override;
     std::string bookStore()override;
     std::string  bookStoreSearch()override;
-     std::string  bookStoreSearch2()override;
-     std::string  bookStoreSearch3()override;
+    std::string  bookStoreSearch2()override;
+    std::string  bookStoreSearch3()override;
     std::string ifFound()override;
-    int load2();
-
+    std::vector<std::string> inserting()override;
+    std::vector<std::string> insertingNewBook();
+    template<class A>auto space(auto x)->void ;
+    void display() override;
+    void thank();
 private:
     std::string option;
+
+
 };
 
 

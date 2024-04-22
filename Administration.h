@@ -8,7 +8,7 @@
 #include "Encryption.h"
 #include <fstream>
 class Administration: private Encryption{
-public:
+protected:
     Administration();
 
     ~Administration() override;

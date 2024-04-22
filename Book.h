@@ -11,8 +11,9 @@ class Book :BookData{
 public:
     Book();
     virtual ~Book(){
-
     }
+
+
     friend void operator<<(std::ostream &,Book&);
     bool exist_by_book_name(std::string);
     bool exist_by_book_id(std::string);

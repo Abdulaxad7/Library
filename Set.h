@@ -18,19 +18,23 @@
 #include "Transactions.h"
 #include "Screen.h"
 
-class Set  : private Screen,private UserData,private CreateAccount,private Administration,private Book{
+class Set  : private Screen,private UserData,private CreateAccount,private Administration,private Book,private Transactions{
 public:
     void choseOption();
-    void choseOption2();
 
+protected:
+    void choseOption2();
 private:
+
     Book book;
+    Transactions transactions;
     void func();
     void func1();
     void func2();
     void func3();
     void func4();
     void func5();
+    void func6();
     int load();
     std::string option;
 };

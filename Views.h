@@ -18,6 +18,6 @@ protected:
     virtual std::string  bookStoreSearch2()=0;
     virtual std::string  bookStoreSearch3()=0;
     virtual std::string ifFound()=0;
-
+    virtual std::vector<std::string> inserting()=0;
 };
 #endif //UNTITLED22_VIEWS_H

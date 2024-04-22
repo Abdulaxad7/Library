@@ -67,8 +67,6 @@ std::string Transactions::getCardNumb() {
     return get<std::string>(card_valid_thru,3);
 }
 
-
-
  std::string Transactions::getCardHold()  {
     return get<std::string>(card_holder,2);
 }
@@ -77,18 +75,15 @@ std::string Transactions::getCardNumb() {
      return get<std::string>(card_balance,4);
 }
 
-
-
 bool Transactions::setCardBalan() {
     static bool seedSet = false;
     if (!seedSet) {
-
         seedSet = true;
     }
     card_balance=std::to_string(rand()%9999);
 
     try{
-        fileForWrite<<card_balance<<std::endl;
+        fileForWrite<<card_balance<<"$"<<std::endl;
         return true;
     }catch (const std::ios_base::failure&exception){
         return false;
@@ -103,7 +98,7 @@ bool Transactions::setCardHold( std::string cardHolder) {
         return false;
     }
 }
-bool Transactions::setCardValid( std::string cardValidThru) {
+bool Transactions::setCardValid(  std::string cardValidThru) {
     this->card_valid_thru = cardValidThru;
     try{
         fileForWrite<<cardValidThru<<",";

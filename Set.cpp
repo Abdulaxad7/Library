@@ -4,27 +4,20 @@
 #include <iostream>
 #include "Set.h"
 #include <thread>
-#include <filesystem>
 
 void Set::choseOption(){
         option=Screen::show1();
-
         if(option=="1"||option=="Login"||option=="login"||option=="LogIn") {
             std::cout<<show2();
             std::vector<std::string>copy;
             copy=data;
-
-
             if(UserData::checkUserName(copy[0])&&UserData::checkUserPassword(copy[1])){
                 if(!option.empty())
                     option.clear();
                            choseOption2();
-
                         }else{
                             std::cout<<"\033[1;31m Username or password is incorrect!!!\n";
-
                             choseOption();
-
                         }
         }
         if(option=="3"||option=="admin"||option=="Admin"){
@@ -33,37 +26,32 @@ void Set::choseOption(){
         if(option=="2"||option=="CreateAccount"||option=="Createaccount"||option=="createaccount"){
             func1();
         }
-
        else{
             std::cout<<"\033[1;31m Wrong choice!!!\n";
-
             system("clear");
            choseOption();
        }
-
 }
-
 void Set::func(){
             std::cout<<show4();
     std::vector<std::string>copy;
-
     copy=data;
             if(Administration::check_id(copy[0])&&Administration::check_password(copy[1])){
-                std::cout<<"success"<<std::endl;
-               choseOption();
-
+               std::vector<std::string>data= insertingNewBook();
+               InsertBook insertBook;
+               insertBook.setId(data[0])->setName(data[1])->setAuthor(data[2])->setDate(data[3])->setPrice(data[4])->setPages(data[5]);
+                std::cout<<"\n\033[38;5;28mPlease wait for some time.\nInserting new book"<<"  "<<load()<<"\n\n";
+                func();
             }
             else{
                 std::cout<<"\033[1;31m Username or password is incorrect!!!\n";
                 choseOption();
-
             }
 }
 
 void Set::func1(){
-                    std::cout<<show3();
+    std::cout<<show3();
     std::vector<std::string>copy;
-
     copy=data;
                 try {
                     CreateAccount account;
@@ -79,12 +67,8 @@ void Set::func1(){
                         choseOption();
                     }
 }
-
-
 void Set::choseOption2(){
-
     option=Screen::bookStore();
-
     if(option=="1"||option=="searchbybookname"||option=="bookname"){
         func2();
     }
@@ -95,7 +79,6 @@ void Set::choseOption2(){
         func4();
     }
 }
-
 int Set::load(){
 for(int i=0;i<15;i++) {
     std::this_thread::sleep_for(std::chrono::milliseconds(250));
@@ -110,11 +93,8 @@ for(int i=0;i<15;i++) {
 }
 
 
-
-
 void Set::func2(){
     std::string search;
-
     search= bookStoreSearch();
     std::cout<<"\n\033[38;5;28m Please wait for some time.\n Searching book named: "<<search<<"  "<<load();
      if(book.exist_by_book_name(search)){
@@ -126,10 +106,7 @@ void Set::func2(){
          search.clear();
          choseOption2();
      }
-
 }
-
-
 
 
 void Set::func3() {
@@ -146,8 +123,6 @@ std::cout<<"\n\n";
         choseOption2();
     }
 }
-
-
 
 
 void Set::func4(){
@@ -207,10 +182,17 @@ void Set::func5(){
 
         func5();
     }
+    if(search=="7"||search.contains("Buy this book")||search.contains("buythisbook")||search.contains("Buythisbook")){
+        std::cout<<std::endl;
+        std::cout<<"\033[38;5;28m Checking saved cards by your name   "<<load();
+        func6();
+
+    }
     if(search=="-1"||search.contains("back")||search.contains("Back")){
         std::cout<<std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(10000));
-        choseOption2();
+        std::this_thread::sleep_for(std::chrono::milliseconds(8000));
+        func5();
+
     }
     else{
         std::cout<<"\n\033[1;31m Wrong choice!!!\n";func5();
@@ -218,8 +200,21 @@ void Set::func5(){
 }
 
 
+void Set::func6(){
+    std::vector<std::string>database;
+    std::cout<<"\033[1;31m\nThere not found card with your name on our server.\n";
+   database= inserting();
 
+   if(transactions.setCardNumb(database[0])||transactions.setCardHold(database[1])||transactions.setCardValid(database[2])||transactions.setCardBalan()){
+       thank();
+       std::this_thread::sleep_for(std::chrono::milliseconds(13000));
+       for(int i=0;i<15;i++){
+           std::cout<<"\n";
+       }
+       choseOption2();
+   }
 
+}
 
 
 

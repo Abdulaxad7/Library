@@ -12,7 +12,6 @@ public:
     Transactions();
     virtual ~Transactions();
 
-
 public:
      std::string getCardBalan() ;
 
@@ -27,7 +26,7 @@ public:
     bool setCardNumb( std::string );
 
 
-    bool setCardValid( std::string );
+    bool setCardValid(  std::string );
 
 
     bool setCardHold( std::string );
