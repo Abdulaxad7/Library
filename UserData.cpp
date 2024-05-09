@@ -17,10 +17,10 @@ bool UserData::checkUserId(std::string userId) {
 }
 
 bool UserData::checkUserName(std::string_view userName){
+    this->userName=userName;
     if(userName.empty())
         return false;
     std::vector<std::string>names=connect.readName();
-    this->userName=userName;
 
         for(std::string s:names){
 

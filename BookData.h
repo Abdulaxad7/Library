@@ -23,13 +23,13 @@ public:
 private:
     template<class Search>auto search(auto target_search,auto target_page);
     template<class Open_File>auto open_file();
-    std::string_view book_id;
-    std::string_view book_name;
-    std::string_view book_author;
-    std::vector<std::string> all;
-    std::vector<std::string> founded;
-    std::string line;
-    std::fstream file;
+    std::string_view          book_id;
+    std::string_view          book_name;
+    std::string_view          book_author;
+    std::vector<std::string>  all;
+    std::vector<std::string>  founded;
+    std::string               line;
+    std::fstream              file;
 };
 
 

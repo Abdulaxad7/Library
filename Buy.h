@@ -27,7 +27,7 @@ public:
     Buy();
     virtual ~Buy()=default;
 private:
-    Book book;
+    Book        book;
     std::string cardHolder;
     std::string cardValidThru;
     std::string cardNumber;

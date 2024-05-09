@@ -15,9 +15,9 @@ protected:
     bool check_id(std::string);
     bool check_password(std::string);
 private:
-    std::string id;
-    std::string password;
-    std::string line;
+    std::string  id;
+    std::string  password;
+    std::string  line;
     std::fstream file;
 };
 

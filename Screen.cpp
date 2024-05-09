@@ -8,7 +8,6 @@
 #include "Screen.h"
 #include <cctype>
 #include <algorithm>
-#include <strstream>
 #include "Set.h"
 std::string_view GREEN=  "\033[38;5;28m";
 std::string_view RESET=  "\033[0m";
@@ -23,48 +22,33 @@ template<class A>auto Screen::space(auto x)->void {
     }
 }
 
-
-
 void Screen::display() {
-
     space<void>(50);
-
     std::cout<<RESET<<std::endl;
-
     for(int i=0;i<51;i++){
         if(i==25)
             std::cout<<RESET<< GREEN  <<LINE1<< "||\033[1;3m" <<std::setw(85)<<"BASIC LIBRARY";
-
         if(i>49) {
             std::cout << RESET << GREEN << std::setw(67) << LINE1 << "||" << std::endl;
         }
-
     }
     space<void>(50);
-
     std::cout<<"\n";
-//    std::cout<<show1();
     system("clear");
 }
 
-
 std::string Screen::show1(){
-
     space<void>(50);
-
     std::cout<<RESET<<std::endl;
-
             std::cout << RESET << GREEN << LINE1 << "||  ";
         for (int i = 0; i < 51; i++) {
             if (i == 25) {
                 for (int j = 0; j < 20; j++) {
-
                     std::cout << GREEN << "\033[1;4m" << "———";
                     if(j==19)
                         std::cout<<RESET<<GREEN<<std::setw(92)<<"\033[1;1m||";
                 }
                 std::cout <<std:: endl;
-
                 for (int k = 0; k < 19; k++) {
                     if (k % 2 == 0) {
                         if (k == 0) {
@@ -1629,7 +1613,7 @@ void startInfo() {
     tm *local_time = localtime(&tt);
 
     char buffer[80];
-    strftime(buffer, sizeof(buffer), "%Y-%m-%d   %H:%M:%S  ", local_time);
+    strftime(buffer,sizeof(buffer),"%Y-%m-%d   %H:%M:%S  ",local_time);
 
 
 
@@ -1639,7 +1623,7 @@ auto dash=[](){
         std::cout<< "---";
     }
     return "-";};
-    std::cout <<buffer <<"INFO  "<<std::rand()%99999<<dash()<<"Loading "<<load()<<"\n";
+    std::cout <<buffer <<"INFO  "<<std::rand()%99999<<dash()<<"Loading   "<<load()<<"00%\n";
 }
 void Screen::start(){
     std::cout<<GREEN;
