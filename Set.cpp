@@ -6,11 +6,13 @@
 #include <thread>
 
 void Set::choseOption(){
+         std::string option;
         option=Screen::show1();
         if(option=="1"||option=="Login"||option=="login"||option=="LogIn") {
             std::cout<<show2();
             std::vector<std::string>copy;
             copy=data;
+            data.clear();
             if(UserData::checkUserName(copy[0])&&UserData::checkUserPassword(copy[1])){
                 if(!option.empty())
                     option.clear();
@@ -77,6 +79,9 @@ void Set::choseOption2(){
     }
     if(option=="3"||option=="searchbybookid"||option=="bookid"){
         func4();
+    }
+    else{
+        std::cout<<"\n\033[1;31m Wrong choice!!!\n";choseOption2();
     }
 }
 int Set::load(){
@@ -150,45 +155,45 @@ void Set::func5(){
        std::this_thread::sleep_for(std::chrono::milliseconds(5000));
        func5();
    }
-    if(search=="2"||search.contains("Get book author")||search.contains("Getbookauthor")||search.contains("getbookauthor")){
+    else if(search=="2"||search.contains("Get book author")||search.contains("Getbookauthor")||search.contains("getbookauthor")){
         std::cout<<"\n\033[38;5;28m This book was written by: "<<book.checkAuthor()<<"\n";
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
         func5();
     }
-    if(search=="3"||search.contains("Get book id")||search.contains("Getbookid")||search.contains("getbookid")){
+   else if(search=="3"||search.contains("Get book id")||search.contains("Getbookid")||search.contains("getbookid")){
         std::cout<<"\n\033[38;5;28m This book's id: "<<book.checkId()<<"\n";
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
         func5();
     }
-    if(search=="4"||search.contains("Get book price")||search.contains("Getbookprice")||search.contains("getbookprice")){
+   else if(search=="4"||search.contains("Get book price")||search.contains("Getbookprice")||search.contains("getbookprice")){
         std::cout<<"\n\033[38;5;28m This book's price: "<<book.checkPrice()<<"\n";
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
         func5();
 
     }
-    if(search=="5"||search.contains("Get book pages")||search.contains("Getbookpages")||search.contains("getbookpages")){
+   else if(search=="5"||search.contains("Get book pages")||search.contains("Getbookpages")||search.contains("getbookpages")){
         std::cout<<"\n\033[38;5;28m This book contains : "<<book.checkPages()<<" pages."<<"\n";
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
         func5();
 
     }
-    if(search=="6"||search.contains("Get all data")||search.contains("Getalldata")||search.contains("getalldata")){
+   else if(search=="6"||search.contains("Get all data")||search.contains("Getalldata")||search.contains("getalldata")){
         std::cout<<"\n\033[38;5;28m"<<book;
         std::cout<<std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(5000));
 
         func5();
     }
-    if(search=="7"||search.contains("Buy this book")||search.contains("buythisbook")||search.contains("Buythisbook")){
+   else if(search=="7"||search.contains("Buy this book")||search.contains("buythisbook")||search.contains("Buythisbook")){
         std::cout<<std::endl;
         std::cout<<"\033[38;5;28m Checking saved cards by your name   "<<load();
         func6();
 
     }
-    if(search=="-1"||search.contains("back")||search.contains("Back")){
+   else if(search=="-1"||search.contains("back")||search.contains("Back")){
         std::cout<<std::endl;
         std::this_thread::sleep_for(std::chrono::milliseconds(8000));
         func5();
@@ -208,7 +213,7 @@ void Set::func6(){
    if(transactions.setCardNumb(database[0])||transactions.setCardHold(database[1])||transactions.setCardValid(database[2])||transactions.setCardBalan()){
        thank();
        std::this_thread::sleep_for(std::chrono::milliseconds(13000));
-       for(int i=0;i<15;i++){
+       for(int i=0;i<30;i++){
            std::cout<<"\n";
        }
        choseOption2();

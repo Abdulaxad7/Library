@@ -27,20 +27,23 @@ std::string Book::checkPages()  {
    return checking<void>(3);
 }
 bool Book::exist_by_book_name(std::string name) {
-    *check= check_by_book_name(name);
+    Book book;
+    *check= book.check_by_book_name(name);
     if(!check->empty())
         return true;
     return false;
 }
 
 bool Book::exist_by_book_id(std::string id) {
-    *check= check_by_book_id(id);
+    Book book;
+    *check= book.check_by_book_id(id);
     if(!check->empty())
         return true;
     return false;
 }
 bool Book::exist_by_book_author(std::string author) {
-    *check= check_by_book_author(author);
+    Book book;
+    *check= book.check_by_book_author(author);
     if(!check->empty())
         return true;
     return false;
@@ -49,7 +52,7 @@ bool Book::exist_by_book_author(std::string author) {
 Book::Book() {}
 
 void operator<<(std::ostream &out, Book &book) {
-   out<<"  Your Book name is : "<<book.checkBookName()
+   out<<"Your Book name is : "<<book.checkBookName()
       <<"\nYour Book author is: "<<book.checkAuthor()
       <<"\nYour Book price is: "<<book.checkPrice()
       <<"\nYour Book Pages is: "<<book.checkPages()<<std::endl;

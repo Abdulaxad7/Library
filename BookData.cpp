@@ -14,6 +14,7 @@ auto BookData::search(auto target_search,auto target_page){
         std::stringstream stringstream(line);
         std::vector<std::string> fields;
         for (std::string field; std::getline(stringstream, field, ',');) {
+
             fields.push_back(field);
         }
         if (!fields.empty() && fields[target_page] == target_search) {
@@ -23,6 +24,7 @@ auto BookData::search(auto target_search,auto target_page){
     }
         if (!founded.empty()) {
             for (const std::string& data : founded) {
+
             }
         }
 }
@@ -33,7 +35,6 @@ auto BookData::open_file(){
     if(!file.is_open()){
         std::cerr<<"Unable to open file"<<std::flush;
     }
-
 }
 
 BookData::BookData() {

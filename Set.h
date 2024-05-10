@@ -22,8 +22,8 @@ class Set  : private Screen,private UserData,private CreateAccount,private Admin
 public:
     void choseOption();
 
-protected:
     void choseOption2();
+
 private:
 
     Book book;

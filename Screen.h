@@ -16,7 +16,7 @@ class Screen : private Views{
 public:
     void start()  override;
 protected:
-    std::vector<std::string>data;
+  std::vector<std::string>data;
     std::string show1()override;
     std::string show2()override;
     std::string show3()override;

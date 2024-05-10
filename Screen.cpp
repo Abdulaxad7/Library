@@ -674,7 +674,7 @@ std::string Screen::bookStore(){
                     if (k == 4) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(13) <<LINE
 
-                                  << "——————————| Search by book name |——————————" << RESET
+                                  << "——————————| Search book by name |——————————" << RESET
 
                                   << std::setw(16) << GREEN << "||"
                                   <<std::setw(10)<<"|"
@@ -703,7 +703,7 @@ std::string Screen::bookStore(){
                     }
                     if (k == 8) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(12) << LINE
-                                  << "——————————| Search by book author |——————————" << RESET
+                                  << "——————————| Search book by author |——————————" << RESET
                                   << std::setw(15) << GREEN << "||"
                                   <<std::setw(10)<<"|"<<"_____"
                                   <<std::setw(9)<<"__|__"
@@ -724,7 +724,7 @@ std::string Screen::bookStore(){
 //
                     if (k == 12) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(14) << LINE
-                                  << "——————————| Search by book id |——————————" << RESET
+                                  << "——————————| Search book by id |——————————" << RESET
                                   << std::setw(17) << GREEN << "||" <<std::setw(56)<<
                                   "\033[1;4m"<<"———————————————————————————————"<<RESET<<GREEN<<"   ||"<< std::endl;
                     }
@@ -808,7 +808,7 @@ std::string  Screen::bookStoreSearch(){
                     if (k == 4) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(13) <<LINE2
 
-                                  << "——————————| Search by book name |——————————" << RESET
+                                  << "——————————| Search book by name |——————————" << RESET
 
                                   << std::setw(16) << GREEN << "||"
                                   <<std::setw(10)<<"|"
@@ -837,7 +837,7 @@ std::string  Screen::bookStoreSearch(){
                     }
                     if (k == 8) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(12) << LINE
-                                  << "——————————| Search by book author |——————————" << RESET
+                                  << "——————————| Search book by author |——————————" << RESET
                                   << std::setw(15) << GREEN << "||"
                                   <<std::setw(10)<<"|"<<"_____"
                                   <<std::setw(9)<<"__|__"
@@ -858,7 +858,7 @@ std::string  Screen::bookStoreSearch(){
 //
                     if (k == 12) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(14) << LINE
-                                  << "——————————| Search by book id |——————————" << RESET
+                                  << "——————————| Search book by id |——————————" << RESET
                                   << std::setw(17) << GREEN << "||" <<std::setw(56)<<
                                   "\033[1;4m"<<"———————————————————————————————"<<RESET<<GREEN<<"   ||"<< std::endl;
                     }
@@ -939,7 +939,7 @@ std::string  Screen::bookStoreSearch2(){
                     if (k == 4) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(13) <<LINE
 
-                                  << "——————————| Search by book name |——————————" << RESET
+                                  << "——————————| Search book by name |——————————" << RESET
 
                                   << std::setw(16) << GREEN << "||"
                                   <<std::setw(10)<<"|"
@@ -968,7 +968,7 @@ std::string  Screen::bookStoreSearch2(){
                     }
                     if (k == 8) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(12) << LINE2
-                                  << "——————————| Search by book author |——————————" << RESET
+                                  << "——————————| Search book by author |——————————" << RESET
                                   << std::setw(15) << GREEN << "||"
                                   <<std::setw(10)<<"|"<<"_____"
                                   <<std::setw(9)<<"__|__"
@@ -989,7 +989,7 @@ std::string  Screen::bookStoreSearch2(){
 //
                     if (k == 12) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(14) << LINE
-                                  << "——————————| Search by book id |——————————" << RESET
+                                  << "——————————| Search book by id |——————————" << RESET
                                   << std::setw(17) << GREEN << "||" <<std::setw(56)<<
                                   "\033[1;4m"<<"———————————————————————————————"<<RESET<<GREEN<<"   ||"<< std::endl;
                     }
@@ -1071,7 +1071,7 @@ std::string  Screen::bookStoreSearch3(){
                     if (k == 4) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(13) <<LINE
 
-                                  << "——————————| Search by book name |——————————" << RESET
+                                  << "——————————| Search book by name |——————————" << RESET
 
                                   << std::setw(16) << GREEN << "||"
                                   <<std::setw(10)<<"|"
@@ -1100,7 +1100,7 @@ std::string  Screen::bookStoreSearch3(){
                     }
                     if (k == 8) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(12) << LINE
-                                  << "——————————| Search by book author |——————————" << RESET
+                                  << "——————————| Search book by author |——————————" << RESET
                                   << std::setw(15) << GREEN << "||"
                                   <<std::setw(10)<<"|"<<"_____"
                                   <<std::setw(9)<<"__|__"
@@ -1121,7 +1121,7 @@ std::string  Screen::bookStoreSearch3(){
 //
                     if (k == 12) {
                         std::cout << RESET << GREEN << LINE1 << "|| " <<" ||"<< std::setw(14) << LINE2
-                                  << "——————————| Search by book id |——————————" << RESET
+                                  << "——————————| Search book by id |——————————" << RESET
                                   << std::setw(17) << GREEN << "||" <<std::setw(56)<<
                                   "\033[1;4m"<<"———————————————————————————————"<<RESET<<GREEN<<"   ||"<< std::endl;
                     }
@@ -1413,34 +1413,34 @@ std::vector<std::string> Screen::inserting() {
         inserting();
     }
 
-    if ( [&d]() {int count = 0;for (char c : d) {if (isdigit(c)) {count++; }}return count;}() != 16){
+   else if ( [&d]() {int count = 0;for (char c : d) {if (isdigit(c)) {count++; }}return count;}() != 16){
         std::cout<<"\033[1;31m Card  number has to be 16 digits!!!\n";inserting();
     }
-    if((d2.length() >= 6 ||isalpha(d2[0]) || isalpha(d2[1]) || isalpha(d2[3]) || isalpha(d2[4]))){
+  else  if((d2.length() >= 6 ||isalpha(d2[0]) || isalpha(d2[1]) || isalpha(d2[3]) || isalpha(d2[4]))){
         std::cout<<"\033[1;31m Card thru date cannot contain letters!!!\n";
         std::cout<<"\033[1;31m Please write on this sequence (month/year)!!!\n";
         inserting();
 
     }
-    if(!(isdigit(d2[0])&&isdigit(d2[1])&&d2[2]=='/'&&isdigit(d2[3])&&isdigit(d2[4]))){
+   else if(!(isdigit(d2[0])&&isdigit(d2[1])&&d2[2]=='/'&&isdigit(d2[3])&&isdigit(d2[4]))){
         std::cout<<"\033[1;31m Please write on this sequence (month/year)!!!\n";
         inserting();
 
     }
 
-    if(!((0<=d2[0]<=1)&&(d2[1]>=0))){
+  else  if(!((0<=d2[0]<=1)&&(d2[1]>=0))){
         std::cout<<"\033[1;31m Please write on this sequence (month/year)!!!\n";
         inserting();
     }
-    if(std::any_of(d3.begin(),d3.end(),::isdigit)){
+   else if(std::any_of(d3.begin(),d3.end(),::isdigit)){
         std::cout<<"\033[1;31m Card holder's name cannot contain number!!!\n";
         inserting();
     }
-    if(islower(d3[0])){
+   else if(islower(d3[0])){
         std::cout<<"\033[1;31m Card holder's name should start with uppercase!!!\n";
         inserting();
     }
-    if(!database.empty())
+   else if(!database.empty())
         database.clear();
 
     database.push_back(d);
@@ -1623,14 +1623,16 @@ auto dash=[](){
         std::cout<< "---";
     }
     return "-";};
-    std::cout <<buffer <<"INFO  "<<std::rand()%99999<<dash()<<"Loading   "<<load()<<"00%\n";
+    std::cout <<buffer <<"[INFO]  "<<std::rand()%99999<<dash()<<"Loading   "<<load()<<"00%\n";
 }
+
 void Screen::start(){
     std::cout<<GREEN;
     for(int i=0;i<10;i++){
         std::this_thread::sleep_for(std::chrono::milliseconds(500));
         startInfo();
     }
+
     display();
     Set set;
     set.choseOption();

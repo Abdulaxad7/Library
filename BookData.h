@@ -27,7 +27,7 @@ private:
     std::string_view          book_name;
     std::string_view          book_author;
     std::vector<std::string>  all;
-    std::vector<std::string>  founded;
+    std::vector<std::string> founded;
     std::string               line;
     std::fstream              file;
 };

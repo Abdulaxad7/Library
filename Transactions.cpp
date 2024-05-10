@@ -16,8 +16,8 @@ Transactions::Transactions() {
     card_number="";
     card_valid_thru="";
 
-    fileForWrite.open("CardData.csv",std::ios::out|std::ios::app);
-    fileForRead.open("CardData.csv",std::ios::in);
+    fileForWrite.open("CardData.csv",std::ios::in|std::ios::app);
+    fileForRead.open("CardData.csv",std::ios::out);
 
     if(!fileForWrite.is_open()||!fileForRead.is_open()){
         std::cerr<<"Could not open file"<<std::flush;
@@ -76,16 +76,14 @@ std::string Transactions::getCardNumb() {
 }
 
 bool Transactions::setCardBalan() {
-    static bool seedSet = false;
-    if (!seedSet) {
-        seedSet = true;
-    }
     card_balance=std::to_string(rand()%9999);
 
     try{
         fileForWrite<<card_balance<<"$"<<std::endl;
         return true;
     }catch (const std::ios_base::failure&exception){
+        std::cerr<<exception.what()<<std::flush;
+
         return false;
     }
 }
@@ -95,6 +93,8 @@ bool Transactions::setCardHold( std::string cardHolder) {
         fileForWrite<<cardHolder<<",";
         return true;
     }catch (const std::ios_base::failure&exception){
+        std::cerr<<exception.what()<<std::flush;
+
         return false;
     }
 }
@@ -104,6 +104,8 @@ bool Transactions::setCardValid(  std::string cardValidThru) {
         fileForWrite<<cardValidThru<<",";
         return true;
     }catch (const std::ios_base::failure&exception){
+        std::cerr<<exception.what()<<std::flush;
+
         return false;
     }
 }
@@ -113,6 +115,7 @@ bool Transactions::setCardNumb( std::string cardNumber) {
         fileForWrite<<TransactionNumber<<","<<cardNumber<<",";
         return true;
     }catch (const std::ios_base::failure&exception){
+        std::cerr<<exception.what()<<std::flush;
         return false;
     }
 }

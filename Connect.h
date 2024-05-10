@@ -14,7 +14,7 @@ private:
     std::string field;
     std::fstream file;
 public:
-    explicit Connect();
+    Connect();
     virtual ~Connect();
     std::vector<std::string> readId(std::string_view );
     std::vector<std::string> readPassword();

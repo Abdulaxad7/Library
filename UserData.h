@@ -8,7 +8,6 @@
 #include "Connect.h"
 #include "Encryption.h"
 class UserData:private Encryption{
-    Connect connect;
     std::string userId;
     std::string_view userName;
     std::string_view userPassword;

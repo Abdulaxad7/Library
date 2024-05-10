@@ -35,7 +35,7 @@ std::vector<std::string> Connect::readId(std::string_view id) {
     return allId;
 }
 
-std::vector<std::string> Connect::readName() {
+std::vector<std::string> Connect::readName(){
 
     int targetColumn = 3;
     std::vector<std::string> allNames;
@@ -47,12 +47,9 @@ std::vector<std::string> Connect::readName() {
         std::stringstream stringstream(line);
 
         for (int i = 0; i < targetColumn -1; i++) {
-
-
             std::getline(stringstream, field, ',');
         }
         std::getline(stringstream, field, ',');
-
 
         allNames.emplace_back(field);
     }
