@@ -431,17 +431,16 @@ std::string Screen::show3() {
             }
         }
     }
-    std::string s;
+
     for(int i=0;i<38;i++){
         std::cout<< GREEN <<"\033[1;4m" <<"———";
 
         if(i==37){
-
-            std::cout<< GREEN <<"\033[1;7m" <<"|"<<RESET<<" ";
-
             std::string username;
             std::string password;
             std::string email;
+            std::cout<< GREEN <<"\033[1;7m" <<"|"<<RESET<<" ";
+
             std::cin>>username;
             username.erase(std::remove(username.begin(),username.end(),' '),username.end());
             std::cout<<"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
@@ -449,29 +448,35 @@ std::string Screen::show3() {
             std::cout<<"\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t";
             std::cin>>password;
            if( std::any_of(username.begin(),username.end(),::isdigit)) {
-
                std::cout << "\n\033[1;31m Username should not contain integer type values!!!\n" ;
-
                show3();
-           }if(islower(username[0])){
+           }
+
+         else  if(islower(username[0])){
                 std::cout << "\n\033[1;31m Username should start with uppercase!!!\n" ;
                 show3();
            }
-            if(!std::any_of(email.begin(),email.end(),[](char c) { return c == '@';})||email[0]=='@'||!std::any_of(email.begin(),email.end(),[](char c) { return c == '.';})){
+          else  if(!std::any_of(email.begin(),email.end(),[](char c) { return c == '@';})  ||  email[0]=='@'  ||!std::any_of(email.begin(),email.end(),[](char c) { return c == '.';})){
                 std::cout << "\n\033[1;31m Email should be type of example@email.org!!!\n" ;
                 show3();
             }
-            if(password.length()<=4||!std::any_of(password.begin(),password.end(),::isdigit)){
+          else if(password.length()<=4||!std::any_of(password.begin(),password.end(),::isdigit)){
                 std::cout << "\n\033[1;31m Your password is too easily guessable. Try to use mixed data types!!!\n" ;
                 show3();
             }
-
-            if(!data.empty())
+           else if(!data.empty())
                 data.clear();
+           else{
             data.emplace_back(username);
             data.emplace_back(email);
             data.emplace_back(password);
-
+           }
+            if(!username.empty())
+                username.clear();
+            if(!password.empty())
+                password.clear();
+            if(!email.empty())
+                email.clear();
         }
     }
 
@@ -630,7 +635,7 @@ std::string Screen::show4() {
 
 
 std::string Screen::bookStore(){
-
+std::cout<<"\n\n";
 
 
     space<void>(50);
